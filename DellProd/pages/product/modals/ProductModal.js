@@ -3,6 +3,7 @@ import {Component} from 'react'
 const buyModal = id => $(`#${id} .ui.modal.bought`).modal('show')
 const reviewModal = id => $(`#${id} .ui.modal.review`).modal('show')
 const complaintModal = id => $(`#${id} .ui.modal.complaint`).modal('show')
+const complaintFeedbackModal = id => $(`#${id} .ui.modal.complaint-feedback`).modal('show')
 
 export default class ProductModal extends Component {
 
@@ -34,7 +35,7 @@ export default class ProductModal extends Component {
                                 <button className="ui primary button">Rate</button>
                             </div>
                             <div className="ui segment centered">
-                                <button className="ui orange button">Complain Feedback</button>
+                                <button className="ui orange button" onClick={() => complaintFeedbackModal(info.asin)}>Complaint Feedback</button>
                             </div>
                             <div className="ui segment centered">
                                 <button className="ui button">Go Back</button>

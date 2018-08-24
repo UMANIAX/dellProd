@@ -5,7 +5,7 @@ import {Component} from 'react'
 import axios from 'axios'
 import storeFactory from '../store'
 import {serverLink} from '../constants'
-import ProductModal from './product/modals/ProductModal'
+import SignIn from './SignIn'
 
 export default class Index extends Component {
 
@@ -39,7 +39,8 @@ export default class Index extends Component {
                     <link rel="stylesheet" href="/static/stylesheets/modal.css"/>
                 </Head>
 
-                <App store={store}/>
+                {/*<App store={store}/>*/}
+                <SignIn/>
             </div>
         )
     }

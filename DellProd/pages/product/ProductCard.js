@@ -3,6 +3,7 @@ import ProductModal from './modals/ProductModal'
 import BoughtModal from './modals/BoughtModal'
 import ReviewModal from './modals/ReviewModal'
 import ComplaintModal from './modals/ComplaintModal'
+import ComplaintFeedbackModal from './modals/ComplaintFeedBackModal'
 
 export default class ProductCard extends Component {
 
@@ -41,6 +42,7 @@ export default class ProductCard extends Component {
                 <BoughtModal info={info}/>
                 <ReviewModal info={info}/>
                 <ComplaintModal info={info}/>
+                <ComplaintFeedbackModal info={info}/>
             </div>
         )
     }

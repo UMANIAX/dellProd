@@ -5,8 +5,12 @@
       <change afterPath="$PROJECT_DIR$/DellProd/actions.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/constants.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/BoughtModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintFeedBackModal.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintModal.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/RatingModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/stars/RatingStars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/stars/Star.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/static/stylesheets/modal.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/store/index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/store/reducers.js" afterDir="false" />
@@ -26,8 +30,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DellProd/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+            <state relative-caret-position="420">
+              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -35,23 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductPane.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/ProductPane.js">
+      <file leaf-file-name="RatingModal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/RatingModal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductCard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/ProductCard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+            <state relative-caret-position="120">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -59,11 +51,56 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SignIn.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProd/pages/SignIn.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DellProd/static/stylesheets/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ProductModal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
+            <state relative-caret-position="280">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProdServer/model/products.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComplaintFeedBackModal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintFeedBackModal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_connection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProdServer/config/db_connection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -71,53 +108,8 @@
       <file leaf-file-name="ReviewModal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ReviewModal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoughtModal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/BoughtModal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reducers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/store/reducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComplaintModal.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintModal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/static/stylesheets/modal.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProdServer/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="35" selection-start-line="14" selection-start-column="4" selection-end-line="35" />
+            <state relative-caret-position="227">
+              <caret line="13" column="27" selection-end-line="45" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -139,7 +131,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/DellProdServer/config/db_connection.js" />
         <option value="$PROJECT_DIR$/DellProdServer/package.json" />
         <option value="$PROJECT_DIR$/DellProdServer/model/products.js" />
         <option value="$PROJECT_DIR$/DellProd/reducers.js" />
@@ -151,16 +142,23 @@
         <option value="$PROJECT_DIR$/DellProd/pages/product/ProductPage.js" />
         <option value="$PROJECT_DIR$/DellProd/pages/product/BoughtModal.js" />
         <option value="$PROJECT_DIR$/DellProd/pages/product/ProductModal.js" />
-        <option value="$PROJECT_DIR$/DellProd/pages/index.js" />
-        <option value="$PROJECT_DIR$/DellProd/pages/App.js" />
-        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ReviewModal.js" />
         <option value="$PROJECT_DIR$/DellProd/pages/product/modals/BoughtModal.js" />
-        <option value="$PROJECT_DIR$/DellProd/pages/product/ProductCard.js" />
-        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js" />
         <option value="$PROJECT_DIR$/DellProd/pages/product/ProductPane.js" />
         <option value="$PROJECT_DIR$/DellProd/store/reducers.js" />
         <option value="$PROJECT_DIR$/DellProd/static/stylesheets/modal.css" />
         <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintModal.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/product/ProductCard.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintFeedBackModal.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/ReviewModal.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/product/modals/RatingModal.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/SignUp.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/App.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/index.js" />
+        <option value="$PROJECT_DIR$/DellProdServer/config/db_connection.js" />
+        <option value="$PROJECT_DIR$/DellProdServer/model/customer.js" />
+        <option value="$PROJECT_DIR$/DellProd/pages/SignIn.js" />
+        <option value="$PROJECT_DIR$/DellProd/static/stylesheets/index.css" />
       </list>
     </option>
   </component>
@@ -181,8 +179,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
-    <option name="y" value="-1091" />
+    <option name="x" value="1919" />
+    <option name="y" value="-11" />
     <option name="width" value="1922" />
     <option name="height" value="1092" />
   </component>
@@ -202,47 +200,19 @@
             <path>
               <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
+              <item name="DellProdServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="DellProdServer" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="DellProdServer" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -261,6 +231,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DellProd/pages/product/modals" />
       <recent name="$PROJECT_DIR$/DellProd" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -291,12 +262,12 @@
       <option name="presentableId" value="Default" />
       <updated>1534943549880</updated>
       <workItem from="1534943553142" duration="19778000" />
-      <workItem from="1535024879324" duration="40062000" />
+      <workItem from="1535024879324" duration="46742000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59840000" />
+    <option name="totallyTimeSpent" value="66520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-4" width="1920" height="1084" extended-state="6" />
@@ -417,13 +388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DellProdServer/config/db_connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -458,13 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DellProdServer/model/products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DellProdServer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="547">
@@ -472,40 +429,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DellProd/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DellProd/pages/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/ProductCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/product/ProductPane.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -522,35 +449,136 @@
     <entry file="file://$PROJECT_DIR$/DellProd/store/reducers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2984">
+          <caret line="236" column="33" lean-forward="true" selection-start-line="236" selection-start-column="33" selection-end-line="236" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/BoughtModal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ReviewModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
+        <state relative-caret-position="280">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintModal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+        <state relative-caret-position="480">
+          <caret line="39" column="33" selection-start-line="28" selection-start-column="24" selection-end-line="39" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/ProductCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/stars/Star.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/stars/RatingStars.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintFeedBackModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ReviewModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="13" column="27" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProdServer/config/db_connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProdServer/model/customer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/ProductModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProdServer/model/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/product/modals/RatingModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/pages/SignIn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DellProd/static/stylesheets/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>
