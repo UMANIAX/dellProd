@@ -5,6 +5,7 @@ import {Component} from 'react'
 import axios from 'axios'
 import storeFactory from '../store'
 import {serverLink} from '../constants'
+import ProductModal from './product/modals/ProductModal'
 
 export default class Index extends Component {
 
@@ -35,6 +36,7 @@ export default class Index extends Component {
                     <script src="/static/semantic/dist/semantic.min.js"/>
                     <link rel="stylesheet" href="/static/stylesheets/navbar.css"/>
                     <link rel="stylesheet" href="/static/stylesheets/index.css"/>
+                    <link rel="stylesheet" href="/static/stylesheets/modal.css"/>
                 </Head>
 
                 <App store={store}/>

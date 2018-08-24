@@ -12,7 +12,7 @@ class ProductPane extends Component {
         return (
 
             <div className="ui stackable five column grid centered">
-                {products.map((item, index) => <div className="column"><ProductCard key={index} info={item}/></div>)}
+                {products.map((item, index) => <div className="column" key={index}><ProductCard info={item}/></div>)}
             </div>
         )
     }
