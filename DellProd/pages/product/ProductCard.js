@@ -1,10 +1,12 @@
 import {Component} from 'react'
 import ProductModal from './modals/ProductModal'
 import BoughtModal from './modals/BoughtModal'
-
-const showModal = id => $(`#${id} .ui.modal.main`).modal('show')
+import ReviewModal from './modals/ReviewModal'
+import ComplaintModal from './modals/ComplaintModal'
 
 export default class ProductCard extends Component {
+
+    showModal = id => $(`#${id} .ui.modal.main`).modal('show')
 
     render() {
 
@@ -31,12 +33,14 @@ export default class ProductCard extends Component {
                           {info.categories}
                       </span>
                                 <span>
-                          <button className={`modal-button ui teal button`} onClick={() => showModal(this.props.info.asin)}>View</button>
+                          <button className={`modal-button ui teal button`} onClick={() => this.showModal(this.props.info.asin)}>View</button>
                       </span>
                     </div>
                 </div>
                 <ProductModal info={info}/>
                 <BoughtModal info={info}/>
+                <ReviewModal info={info}/>
+                <ComplaintModal info={info}/>
             </div>
         )
     }
