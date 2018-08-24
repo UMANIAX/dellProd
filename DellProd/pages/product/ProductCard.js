@@ -1,25 +1,24 @@
-export default () =>
+export default ({info}) =>
     <div className="ui link cards">
         <div className="card">
             <div className="image">
-                <img src="/static/ilkay-gundogan.jpg"/>
+                <img src={info.imgURL}/>
             </div>
             <div className="content">
-                <div className="header">Matt Giampietro</div>
+                <div className="header">{info.title}</div>
                 <div className="meta">
-                    <a>Friends</a>
+                    <a>{info.price}</a>
                 </div>
                 <div className="description">
-                    Matthew is an interior designer living in New York.
+                    {info.description}
                 </div>
             </div>
             <div className="extra content">
               <span className="right floated">
-                Joined in 2013
+                  {info.category}
               </span>
-                        <span>
-                <i className="user icon"></i>
-                75 Friends
+              <span>
+                  NULL
               </span>
             </div>
         </div>

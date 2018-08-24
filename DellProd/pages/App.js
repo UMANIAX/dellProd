@@ -2,15 +2,46 @@ import Navbar from './menus/Navbar'
 import SideMenu from './menus/SideMenu'
 import ProductPane from './product/ProductPane'
 import '../static/stylesheets/index.css'
+import {Component} from 'react'
+import PropTypes from 'prop-types'
 
-export default () =>
-    <div>
+class App extends Component {
 
-        <Navbar/>
+    getChildContext (){
+        return {
+            store: this.props.store
+        }
+    }
 
-        <div className="ui stackable four column grid">
-            <div className="three wide column side-menu"><SideMenu/></div>
-            <div className="twelve wide column product-pane"><ProductPane/></div>
-        </div>
+    componentWillMount() {
+        this.unsubscribe = this.props.store.subscribe(
+            () => this.forceUpdate()
+        )
+    }
 
-    </div>
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+
+    render() {
+
+        return(
+            <div>
+
+                <Navbar/>
+
+                <div className="ui stackable four column grid">
+                    <div className="three wide column side-menu"><SideMenu/></div>
+                    <div className="twelve wide column product-pane"><ProductPane/></div>
+                </div>
+
+            </div>
+        )
+    }
+}
+
+App.childContextTypes = {
+    store: PropTypes.object.isRequired
+}
+
+export default App
