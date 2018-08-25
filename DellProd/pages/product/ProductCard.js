@@ -15,6 +15,8 @@ class ProductCard extends Component {
         store.dispatch(viewProduct(id, cat))
     }
 
+    backModal = id => $(`#${id} .ui.modal.main`).modal('show')
+
     render() {
 
         const {info} = this.props

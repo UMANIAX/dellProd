@@ -31,6 +31,14 @@ export const customerMeta = (state = {}, action) => {
             state.productsBought.forEach(item => item.asin === action.asin ? item.complaint = {
                 placedOn: new Date(),
                 issue: action.complaint,
+                onGoing: true
+            }: null)
+            return state
+
+        case C.COMPLAINT_FEEDBACK:
+            state.productsBought.forEach(item => item.asin === action.asin ? () => {
+                item.complaint.feedbackRating = action.rating
+                item.complaint.onGoing = false
             }: null)
             return state
 
@@ -49,8 +57,17 @@ export const customerML = (state = {}, action) => {
             return state
 
         case C.VIEW_PRODUCT:
-            console.log(state)
             state['c' + action.categories] += 1
+            return state
+
+        case C.REVIEW_PRODUCT:
+            state.reviewCount += 1
+            // call flask api
+            return state
+
+        case C.COMPLAINT_FEEDBACK:
+            state.feedbackCount += 1
+            state.serviceFeedbackSentiment = (state.serviceFeedbackSentiment + action.rating) / state.feedbackCount
             return state
 
         default:

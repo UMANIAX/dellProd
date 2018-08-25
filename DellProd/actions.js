@@ -27,3 +27,10 @@ export const complaintProduct = (asin, complaint) => ({
     asin: asin,
     complaint: complaint
 })
+
+export const complaintFeedback = (asin, rating) => ({
+
+    type: C.COMPLAINT_FEEDBACK,
+    asin: asin,
+    rating: rating
+})

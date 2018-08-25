@@ -1,31 +1,3 @@
-// import {Component} from 'react'
-// import {HashRouter, Route, Switch} from 'react-router-dom'
-// import SignIn from './SignIn'
-// import NextIndex from './nextIndex'
-//
-// export default class Index extends Component {
-//
-//     componentWillMount() {
-//
-//         localStorage['user']
-//     }
-//
-//     render() {
-//
-//         return (
-//
-//             <HashRouter>
-//                 <div>
-//                     <Switch>
-//                         <Route exact path='/' component={SignIn}/>
-//
-//                     </Switch>
-//                 </div>
-//             </HashRouter>
-//         )
-//     }
-// }
-
 import App from './App'
 import React from 'react'
 import Head from 'next/head'
@@ -34,7 +6,7 @@ import axios from 'axios'
 import storeFactory from '../store'
 import {serverLink} from '../constants'
 
-export default class Index extends Component {
+export default class NextIndex extends Component {
 
     static async getInitialProps() {
 

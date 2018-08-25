@@ -1,12 +1,10 @@
 import {Component} from 'react'
 
-const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
-
 export default class BoughtModal extends Component {
 
     render() {
 
-        const {info} = this.props
+        const {info, goBack} = this.props
 
         return (
 
@@ -16,7 +14,7 @@ export default class BoughtModal extends Component {
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">
                         <h4>{info.title}</h4>
-                        <button className="ui button" onClick={() => backModal(info.asin)}>Go Back</button>
+                        <button className="ui button" onClick={() => goBack(info.asin)}>Go Back</button>
                     </div>
                 </div>
             </div>
