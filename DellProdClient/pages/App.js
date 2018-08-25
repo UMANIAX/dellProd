@@ -1,47 +1,24 @@
-import Navbar from './menus/Navbar'
-import SideMenu from './menus/SideMenu'
-import ProductPane from './product/ProductPane'
-import '../static/stylesheets/index.css'
+import React from 'react'
 import {Component} from 'react'
-import PropTypes from 'prop-types'
+import Link from 'next/link'
 
-class App extends Component {
+export default class App extends Component {
 
-    getChildContext (){
-        return {
-            store: this.props.store
-        }
-    }
+    state = {user: undefined}
 
-    componentWillMount() {
-        this.unsubscribe = this.props.store.subscribe(
-            () => this.forceUpdate()
-        )
-    }
+    componentDidMount() {
 
-    componentWillUnmount() {
-        this.unsubscribe()
+        this.setState({user: localStorage['user']})
     }
 
     render() {
 
-        return(
+        return (
             <div>
-
-                <Navbar/>
-
-                <div className="ui stackable four column grid">
-                    <div className="three wide column side-menu"><SideMenu/></div>
-                    <div className="twelve wide column product-pane"><ProductPane/></div>
-                </div>
-
+                {this.state.user ? <Link href={`/UserStore?id=${this.state.user}`}
+                                                    as={`/UserStore/${this.state.user}`}><a>hello</a></Link> :
+                    <Link href="/SignIn"><a>hello</a></Link>}
             </div>
         )
     }
 }
-
-App.childContextTypes = {
-    store: PropTypes.object.isRequired
-}
-
-export default App

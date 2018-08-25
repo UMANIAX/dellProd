@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import HeadComp from './HeadComp'
 
 export default class SignIn extends Component {
 
@@ -8,15 +9,11 @@ export default class SignIn extends Component {
         alert('You goin nigga?')
     }
 
-    componentWillUnmount() {
-
-        alert('You goin nigga?')
-    }
-
     render() {
 
         return (
             <div className="custom-form">
+                <HeadComp/>
                 <div className="ui container segment">
                     <form className="ui form" onSubmit={this.submit}>
                         <div className="field">
