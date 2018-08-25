@@ -5,6 +5,12 @@ export default class SignIn extends Component {
     submit = e => {
 
         e.preventDefault()
+        alert('You goin nigga?')
+    }
+
+    componentWillUnmount() {
+
+        alert('You goin nigga?')
     }
 
     render() {

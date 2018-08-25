@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import {complaintProduct} from "../../../actions"
+
 
 const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
 
@@ -11,7 +13,10 @@ export default class ComplaintModal extends Component {
         let {_complaintData} = this.refs
         _complaintData = _complaintData.value
 
-        console.log(_complaintData)
+        const {info} = this.props
+        const {store} = this.context
+
+        store.dispatch(complaintProduct(info.asin, _complaintData))
     }
 
     render() {

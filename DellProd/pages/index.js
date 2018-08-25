@@ -11,14 +11,14 @@ export default class Index extends Component {
 
     static async getInitialProps() {
 
-        const dbFetch = await axios(serverLink + '/productData')
-        return {products: dbFetch.data}
+        const dbFetch = await axios(serverLink + '/data/umaniax')
+        return {incomingData: dbFetch.data}
     }
 
     render() {
 
-        const {products} = this.props
-        const store = storeFactory({products: products})
+        const {products, customerMeta, customerML} = this.props.incomingData
+        const store = storeFactory({products, customerMeta, customerML})
 
         return (
 
@@ -37,10 +37,11 @@ export default class Index extends Component {
                     <link rel="stylesheet" href="/static/stylesheets/navbar.css"/>
                     <link rel="stylesheet" href="/static/stylesheets/index.css"/>
                     <link rel="stylesheet" href="/static/stylesheets/modal.css"/>
+                    <link rel="stylesheet" href="/static/stylesheets/star.css"/>
                 </Head>
 
-                {/*<App store={store}/>*/}
-                <SignIn/>
+                <App store={store}/>
+                {/*<SignIn/>*/}
             </div>
         )
     }

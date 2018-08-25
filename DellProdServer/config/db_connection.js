@@ -4,3 +4,6 @@ mongoose.connect(mongoDB)
 mongoose.Promise = Promise
 
 module.exports.ProductData = require('../model/products')
+module.exports.CustomerMLData = require('../model/customerML')
+module.exports.CustomerMetaData = require('../model/customerMeta')
+module.exports.ComplaintData = require('../model/complaints')

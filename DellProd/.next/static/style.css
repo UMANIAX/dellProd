@@ -4,6 +4,9 @@
 
 .imgDim {
     height: 2rem;
+}.check {
+  
+  color: yellow;
 }.product-pane {
     margin-top: 7rem;
 }

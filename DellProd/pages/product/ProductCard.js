@@ -4,14 +4,21 @@ import BoughtModal from './modals/BoughtModal'
 import ReviewModal from './modals/ReviewModal'
 import ComplaintModal from './modals/ComplaintModal'
 import ComplaintFeedbackModal from './modals/ComplaintFeedBackModal'
+import PropTypes from "prop-types";
+import {viewProduct} from '../../actions'
 
-export default class ProductCard extends Component {
+class ProductCard extends Component {
 
-    showModal = id => $(`#${id} .ui.modal.main`).modal('show')
+    showModal = (id, store, cat) => {
+
+        $(`#${id} .ui.modal.main`).modal('show')
+        store.dispatch(viewProduct(id, cat))
+    }
 
     render() {
 
         const {info} = this.props
+        const {store} = this.context
 
         return (
 
@@ -34,7 +41,7 @@ export default class ProductCard extends Component {
                           {info.categories}
                       </span>
                                 <span>
-                          <button className={`modal-button ui teal button`} onClick={() => this.showModal(this.props.info.asin)}>View</button>
+                          <button className={`modal-button ui teal button`} onClick={() => this.showModal(info.asin, store, info.categories)}>View</button>
                       </span>
                     </div>
                 </div>
@@ -47,3 +54,9 @@ export default class ProductCard extends Component {
         )
     }
 }
+
+ProductCard.contextTypes = {
+    store: PropTypes.object
+}
+
+export default ProductCard

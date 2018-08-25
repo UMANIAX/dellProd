@@ -6,30 +6,31 @@ const db = require('./config/db_connection')
 app.use(bodyParser.urlencoded({extended: false})) // get information from html forms
 app.listen(process.env.PORT || 8080)
 
-app.get('/productData', async function (req, res) {
+app.get('/data/:id', async function (req, res) {
 
-    const productData = await db.ProductData.find()
-    res.send(productData)
+    const products = await db.ProductData.find()
+    const customerMeta = await db.CustomerMetaData.findOne({username: req.params.id})
+    const customerML = await db.CustomerMLData.findOne({username: req.params.id})
+    res.send({products, customerMeta, customerML})
 })
 
 // app.get('/putData', function (req, res) {
 //
-//     const insertData = [
-//         {
-//             'asin': '1685560148',
-//             'title': 'Bass Xpansion System',
-//             'description': 'Lets you enjoy your favorite music in high-quality sound.  Expandable BXS (Bass Xpansion system) enhances the sound effect.',
-//             'price': 33.95,
-//             'imUrl': 'http://ecx.images-amazon.com/images/I/41vADnGa7PL._SX300_.jpg',
-//             'categories': 2
-//         }
-//     ]
+//     const customerMetaEntry = {
+//         username: 'umaniax',
+//         password: 'hello1234',
+//         productsBought: []
+//     }
 //
-//     insertData.forEach(item => {
+//     const customerMLEntry = {
+//         username: 'umaniax'
+//     }
 //
-//         const newData = new db.ProductData(item)
-//         newData.save()
-//     })
+//     const newCustomerMeta = new db.CustomerMetaData(customerMetaEntry)
+//     const newCustomerML = new db.CustomerMLData(customerMLEntry)
+//
+//     newCustomerMeta.save()
+//     newCustomerML.save()
 //
 //     res.send('Done')
 // })

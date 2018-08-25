@@ -1,18 +1,12 @@
 import {Component} from 'react'
+import RatingStars from './stars/RatingStars'
 
 const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
 
 export default class ComplaintFeedBackModal extends Component {
 
-    submit = e => {
-
-        e.preventDefault()
-
-        let {_complaintFeedbackData} = this.refs
-        _complaintFeedbackData = _complaintFeedbackData.value
-
-        console.log(_complaintFeedbackData)
-    }
+    rating = 1
+    updateRating = newRating => this.rating = newRating
 
     render() {
 
@@ -26,21 +20,20 @@ export default class ComplaintFeedBackModal extends Component {
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">
                         <h4>{info.title}</h4>
-                        <form onSubmit={this.submit}>
-                            <div className="ui horizontal segments">
-
-                                    <div className="ui segment">
-                                        Group of radio buttons
-                                    </div>
-                                    <div className="ui segment">
-                                        <textarea ref="_complaintData" required/>
-                                    </div>
+                        <div className="ui horizontal segments">
+                            <div className="ui segment">
+                                Group of radio buttons
                             </div>
-                            <br/>
-                            <button className="ui button">Submit</button>
-                        </form>
+                            {/*<div className="ui segment">*/}
+                                <RatingStars currentRate={this.rating} update={this.updateRating}/>
+                            {/*</div>*/}
+                        </div>
                         <br/>
-                        <button className="ui button complaint-button-pad" onClick={() => backModal(info.asin)}>Go Back</button>
+                        <button className="ui button">Submit</button>
+                        <br/>
+                        <button className="ui button complaint-button-pad" onClick={() => backModal(info.asin)}>Go
+                            Back
+                        </button>
                     </div>
                 </div>
             </div>

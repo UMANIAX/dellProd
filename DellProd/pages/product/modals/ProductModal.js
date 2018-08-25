@@ -1,15 +1,23 @@
 import {Component} from 'react'
+import PropTypes from 'prop-types'
+import {buyProduct} from '../../../actions'
 
-const buyModal = id => $(`#${id} .ui.modal.bought`).modal('show')
+const buyModal = (id, store, cat) => {
+
+    $(`#${id} .ui.modal.bought`).modal('show')
+    store.dispatch(buyProduct(id, cat))
+}
+
 const reviewModal = id => $(`#${id} .ui.modal.review`).modal('show')
 const complaintModal = id => $(`#${id} .ui.modal.complaint`).modal('show')
 const complaintFeedbackModal = id => $(`#${id} .ui.modal.complaint-feedback`).modal('show')
 
-export default class ProductModal extends Component {
+class ProductModal extends Component {
 
     render() {
 
         const {info} = this.props
+        const {store} = this.context
 
         return (
 
@@ -21,7 +29,7 @@ export default class ProductModal extends Component {
                         <p>{info.description}</p>
                         <div className="ui horizontal segments">
                             <div className="ui segment centered">
-                                <button className="ui green button" onClick={() => buyModal(info.asin)}>Buy Now $ {info.price}</button>
+                                <button className="ui green button" onClick={() => buyModal(info.asin, store, info.categories)}>Buy Now $ {info.price}</button>
                             </div>
                             <div className="ui segment centered">
                                 <button className="ui button red" onClick={() => complaintModal(info.asin)}>Issue Complain</button>
@@ -31,9 +39,6 @@ export default class ProductModal extends Component {
                             </div>
                         </div>
                         <div className="ui horizontal segments">
-                            <div className="ui segment centered">
-                                <button className="ui primary button">Rate</button>
-                            </div>
                             <div className="ui segment centered">
                                 <button className="ui orange button" onClick={() => complaintFeedbackModal(info.asin)}>Complaint Feedback</button>
                             </div>
@@ -47,3 +52,9 @@ export default class ProductModal extends Component {
         )
     }
 }
+
+ProductModal.contextTypes = {
+    store: PropTypes.object
+}
+
+export default ProductModal

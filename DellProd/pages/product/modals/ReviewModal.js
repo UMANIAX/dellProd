@@ -1,8 +1,11 @@
 import {Component} from 'react'
+import ProductModal from "./ProductModal";
+import PropTypes from "prop-types";
+import {reviewProduct} from '../../../actions'
 
 const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
 
-export default class ReviewModal extends Component {
+class ReviewModal extends Component {
 
     submit = e => {
 
@@ -11,7 +14,10 @@ export default class ReviewModal extends Component {
         let {_reviewData} = this.refs
         _reviewData = _reviewData.value
 
-        console.log(_reviewData)
+        const {info} = this.props
+        const {store} = this.context
+
+        store.dispatch(reviewProduct(info.asin, _reviewData))
     }
 
     render() {
@@ -44,3 +50,9 @@ export default class ReviewModal extends Component {
         )
     }
 }
+
+ReviewModal.contextTypes = {
+    store: PropTypes.object
+}
+
+export default ReviewModal
