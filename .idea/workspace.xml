@@ -4,7 +4,6 @@
     <list default="true" id="36b9d032-9e94-491f-ab5d-2d595affbd79" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/DellProd/actions.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DellProd/pages/index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/BoughtModal.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintFeedBackModal.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DellProd/pages/product/modals/ComplaintModal.js" afterDir="false" />
@@ -37,16 +36,7 @@
         <entry file="file://$PROJECT_DIR$/DellProd/pages/nextIndex.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignIn.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DellProd/pages/SignIn.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <caret line="6" column="33" selection-end-line="46" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -54,11 +44,21 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DellProd/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="81">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#659#682#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignIn.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DellProd/pages/SignIn.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -218,60 +218,6 @@
             <path>
               <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
-              <item name="stars" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
-              <item name="DellProd" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dell" type="462c0819:PsiDirectoryNode" />
               <item name="DellProdServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -329,16 +275,15 @@
       <option name="presentableId" value="Default" />
       <updated>1534943549880</updated>
       <workItem from="1534943553142" duration="19778000" />
-      <workItem from="1535024879324" duration="74581000" />
+      <workItem from="1535024879324" duration="74833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94359000" />
+    <option name="totallyTimeSpent" value="94611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986821" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -672,24 +617,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/SignIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="460">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/nextIndex.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <caret line="6" column="33" selection-end-line="46" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DellProd/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        <state relative-caret-position="81">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#659#682#0" expanded="true" />
           </folding>
         </state>
       </provider>
