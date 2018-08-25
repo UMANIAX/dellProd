@@ -22,6 +22,8 @@ class ProductModal extends Component {
         let isBought = 0
         let ongoingComplaint = 0
 
+        console.log(store.getState())
+
         productsBought.forEach(item => item.asin === info.asin ? () => {
 
             isBought = 1
@@ -42,7 +44,7 @@ class ProductModal extends Component {
                                 {isBought ?
                                     <button className="ui green button disabled">Buy Now $ {info.price}</button> :
                                     <button className="ui green button"
-                                            onClick={() => this.buyModal(info.asin, store, info.categories)}>Buy Now
+                                            /*onClick={() => this.buyModal(info.asin, store, info.categories)}*/>Buy Now
                                         $ {info.price}</button>}
                             </div>
                             <div className="ui segment centered">

@@ -976,7 +976,12 @@ function (_Component) {
           lineNumber: 17
         }
       }, this.state.user ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
-        href: "/UserStore?id=".concat(this.state.user),
+        href: {
+          pathname: '/UserStory',
+          query: {
+            id: this.state.user
+          }
+        },
         as: "/UserStore/".concat(this.state.user),
         __source: {
           fileName: _jsxFileName,

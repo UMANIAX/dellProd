@@ -5,36 +5,33 @@ import axios from 'axios'
 import storeFactory from '../store'
 import {serverLink} from '../constants'
 import HeadComp from './HeadComp'
+import {changeInitState} from '../actions'
+
+let store = null
 
 export default class UserStore extends Component {
 
-    state = {loading: 1}
+    static async getInitialProps({ query: { id } }) {
 
-    user = null
-    incomingData = null
-
-    getInitialProps({ query: { id } }) {
-
-        this.user = id
+        const dbFetch = await axios(serverLink + '/data/' + id)
+        return {incomingData: dbFetch.data}
     }
 
     componentDidMount() {
 
-        axios(serverLink + '/data/' + id).then(res => {
-            this.incomingData = res.data
-            this.setState({loading: 0})
-        })
+        localStorage['redux-store'] ? store.dispatch(changeInitState(JSON.parse(localStorage['redux-store']))) : null
+        console.log(store.getState())
     }
 
     render() {
 
-        const {products, customerMeta, customerML} = this.incomingData
-        const store = storeFactory({products, customerMeta, customerML})
+        const {products, customerMeta, customerML} = this.props.incomingData
+        store = storeFactory({products, customerMeta, customerML})
 
         return (
             <div>
                 <HeadComp/>
-                {!this.state.loading ? <User store={store}/> : <p/>}
+                <User store={store}/>
             </div>
         )
     }

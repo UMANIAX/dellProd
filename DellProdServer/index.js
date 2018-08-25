@@ -14,6 +14,12 @@ app.get('/data/:id', async function (req, res) {
     res.send({products, customerMeta, customerML})
 })
 
+app.post('/sessionData', function (req, res) {
+
+    console.log(req.body)
+    res.send('cool')
+})
+
 // app.get('/putData', function (req, res) {
 //
 //     const customerMetaEntry = {

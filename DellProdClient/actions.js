@@ -34,3 +34,9 @@ export const complaintFeedback = (asin, rating) => ({
     asin: asin,
     rating: rating
 })
+
+export const changeInitState = (state) => ({
+
+    type: C.CHANGE_INIT_STATE,
+    state: state
+})

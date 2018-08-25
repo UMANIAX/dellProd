@@ -8,6 +8,9 @@ export const products = (state = {}, action) => {
             state.forEach(item => item.asin === action.asin ? item.reviews.push(action.review) : null)
             return state
 
+        case C.CHANGE_INIT_STATE:
+            return action.state.products
+
         default:
             return state
     }
@@ -42,6 +45,9 @@ export const customerMeta = (state = {}, action) => {
             }: null)
             return state
 
+        case C.CHANGE_INIT_STATE:
+            return action.state.customerMeta
+
         default:
             return state
     }
@@ -69,6 +75,9 @@ export const customerML = (state = {}, action) => {
             state.feedbackCount += 1
             state.serviceFeedbackSentiment = (state.serviceFeedbackSentiment + action.rating) / state.feedbackCount
             return state
+
+        case C.CHANGE_INIT_STATE:
+            return action.state.customerML
 
         default:
             return state

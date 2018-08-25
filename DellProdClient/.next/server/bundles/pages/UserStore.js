@@ -77,10 +77,11 @@ module.exports =
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return buyProduct; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return viewProduct; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return reviewProduct; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return complaintProduct; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return complaintFeedback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return viewProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return reviewProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return complaintProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return complaintFeedback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return changeInitState; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__("./constants.js");
 
 var buyProduct = function buyProduct(asin, cat) {
@@ -118,6 +119,12 @@ var complaintFeedback = function complaintFeedback(asin, rating) {
     rating: rating
   };
 };
+var changeInitState = function changeInitState(state) {
+  return {
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE,
+    state: state
+  };
+};
 
 /***/ }),
 
@@ -132,7 +139,8 @@ var serverLink = 'http://localhost:8080';
   VIEW_PRODUCT: 'VIEW_PRODUCT',
   REVIEW_PRODUCT: 'REVIEW_PRODUCT',
   COMPLAINT_PRODUCT: 'COMPLAINT_PRODUCT',
-  COMPLAINT_FEEDBACK: 'COMPLAINT_FEEDBACK'
+  COMPLAINT_FEEDBACK: 'COMPLAINT_FEEDBACK',
+  CHANGE_INIT_STATE: 'CHANGE_INIT_STATE'
 });
 
 /***/ }),
@@ -247,6 +255,9 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Hea
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__static_stylesheets_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__static_stylesheets_index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__constants__ = __webpack_require__("./constants.js");
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/User.js";
 
 
@@ -263,6 +274,8 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -309,40 +322,40 @@ function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 32
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__menus_Navbar__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 34
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui stackable four column grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 36
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "three wide column side-menu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 37
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__menus_SideMenu__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 37
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "twelve wide column product-pane",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__product_ProductPane__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         }
       }))));
     }
@@ -364,17 +377,23 @@ User.childContextTypes = {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserStore; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__User__ = __webpack_require__("./pages/User.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__("axios");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__("./store/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__constants__ = __webpack_require__("./constants.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__User__ = __webpack_require__("./pages/User.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__("./store/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__constants__ = __webpack_require__("./constants.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions__ = __webpack_require__("./actions.js");
+
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/UserStore.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -384,10 +403,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
@@ -395,6 +413,9 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
+
+var store = null;
 
 var UserStore =
 /*#__PURE__*/
@@ -402,94 +423,84 @@ function (_Component) {
   _inherits(UserStore, _Component);
 
   function UserStore() {
-    var _ref;
-
-    var _temp, _this;
-
     _classCallCheck(this, UserStore);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = UserStore.__proto__ || Object.getPrototypeOf(UserStore)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: {
-        loading: 1
-      }
-    }), Object.defineProperty(_assertThisInitialized(_this), "user", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: null
-    }), Object.defineProperty(_assertThisInitialized(_this), "incomingData", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: null
-    }), _temp));
+    return _possibleConstructorReturn(this, (UserStore.__proto__ || Object.getPrototypeOf(UserStore)).apply(this, arguments));
   }
 
   _createClass(UserStore, [{
-    key: "getInitialProps",
-    value: function getInitialProps(_ref2) {
-      var id = _ref2.query.id;
-      this.user = id;
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_2_axios___default()(__WEBPACK_IMPORTED_MODULE_4__constants__["b" /* serverLink */] + '/data/' + id).then(function (res) {
-        _this2.incomingData = res.data;
-
-        _this2.setState({
-          loading: 0
-        });
-      });
+      localStorage['redux-store'] ? store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions__["b" /* changeInitState */])(JSON.parse(localStorage['redux-store']))) : null;
+      console.log(store.getState());
     }
   }, {
     key: "render",
     value: function render() {
-      var _incomingData = this.incomingData,
-          products = _incomingData.products,
-          customerMeta = _incomingData.customerMeta,
-          customerML = _incomingData.customerML;
-      var store = Object(__WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */])({
+      var _props$incomingData = this.props.incomingData,
+          products = _props$incomingData.products,
+          customerMeta = _props$incomingData.customerMeta,
+          customerML = _props$incomingData.customerML;
+      store = Object(__WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */])({
         products: products,
         customerMeta: customerMeta,
         customerML: customerML
       });
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+      return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 32
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__HeadComp__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__HeadComp__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 33
         }
-      }), !this.state.loading ? __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__User__["a" /* default */], {
+      }), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__User__["a" /* default */], {
         store: store,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
-        }
-      }) : __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 34
         }
       }));
     }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
+        var id, dbFetch;
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                id = _ref.query.id;
+                _context.next = 3;
+                return __WEBPACK_IMPORTED_MODULE_3_axios___default()(__WEBPACK_IMPORTED_MODULE_5__constants__["b" /* serverLink */] + '/data/' + id);
+
+              case 3:
+                dbFetch = _context.sent;
+                return _context.abrupt("return", {
+                  incomingData: dbFetch.data
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function getInitialProps(_x) {
+        return _getInitialProps.apply(this, arguments);
+      };
+    }()
   }]);
 
   return UserStore;
-}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_2_react__["Component"]);
 
 
 
@@ -646,7 +657,7 @@ function (_Component) {
       writable: true,
       value: function value(id, store, cat) {
         $("#".concat(id, " .ui.modal.main")).modal('show');
-        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions__["e" /* viewProduct */])(id, cat));
+        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions__["f" /* viewProduct */])(id, cat));
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "backModal", {
       configurable: true,
@@ -1008,7 +1019,7 @@ var backModal = function backModal(id) {
 };
 
 var submitRating = function submitRating(rating, asin, store) {
-  store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["b" /* complaintFeedback */])(asin, rating));
+  store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* complaintFeedback */])(asin, rating));
 };
 
 var ComplaintFeedBackModal =
@@ -1214,7 +1225,7 @@ function (_Component) {
         _complaintData = _complaintData.value;
         var info = _this.props.info;
         var store = _this.context.store;
-        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_1__actions__["c" /* complaintProduct */])(info.asin, _complaintData));
+        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_1__actions__["d" /* complaintProduct */])(info.asin, _complaintData));
       }
     }), _temp));
   }
@@ -1408,6 +1419,7 @@ function (_Component) {
       var productsBought = store.getState().customerMeta.productsBought;
       var isBought = 0;
       var ongoingComplaint = 0;
+      console.log(store.getState());
       productsBought.forEach(function (item) {
         return item.asin === info.asin ? function () {
           isBought = 1;
@@ -1418,76 +1430,75 @@ function (_Component) {
         className: "ui modal main",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 36
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 37
         }
       }, info.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 38
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "image img-size",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 39
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 40
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 41
         }
       }, info.description), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui horizontal segments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 42
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 43
         }
       }, isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui green button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 45
         }
       }, "Buy Now $ ", info.price) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        className: "ui green button",
-        onClick: function onClick() {
-          return _this2.buyModal(info.asin, store, info.categories);
-        },
+        className: "ui green button"
+        /*onClick={() => this.buyModal(info.asin, store, info.categories)}*/
+        ,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 46
         }
       }, "Buy Now $ ", info.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 50
         }
       }, !isBought || ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 52
         }
       }, "Issue Complain") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red",
@@ -1496,19 +1507,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 54
         }
       }, "Issue Complain")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 58
         }
       }, isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 60
         }
       }, "Review") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button",
@@ -1517,25 +1528,25 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 61
         }
       }, "Review"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui horizontal segments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 65
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 66
         }
       }, !isBought || !ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 68
         }
       }, "Complaint Feedback") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button",
@@ -1544,19 +1555,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 70
         }
       }, "Complaint Feedback")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 74
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 75
         }
       }, "Go Back"))))));
     }
@@ -1634,7 +1645,7 @@ function (_Component) {
         _reviewData = _reviewData.value;
         var info = _this.props.info;
         var store = _this.context.store;
-        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["d" /* reviewProduct */])(info.asin, _reviewData));
+        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["e" /* reviewProduct */])(info.asin, _reviewData));
       }
     }), _temp));
   }
@@ -1838,9 +1849,18 @@ var Star = function Star(_ref) {
 
 
 
+var saveToLocal = function saveToLocal(store) {
+  return function (next) {
+    return function (action) {
+      next(action);
+      localStorage['redux-store'] = JSON.stringify(store.getState());
+    };
+  };
+};
+
 var storeFactory = function storeFactory() {
   var initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
+  return Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(saveToLocal)(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
     products: __WEBPACK_IMPORTED_MODULE_1__reducers__["c" /* products */],
     customerMeta: __WEBPACK_IMPORTED_MODULE_1__reducers__["b" /* customerMeta */],
     customerML: __WEBPACK_IMPORTED_MODULE_1__reducers__["a" /* customerML */]
@@ -1872,6 +1892,9 @@ var products = function products() {
         return item.asin === action.asin ? item.reviews.push(action.review) : null;
       });
       return state;
+
+    case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE:
+      return action.state.products;
 
     default:
       return state;
@@ -1913,6 +1936,9 @@ var customerMeta = function customerMeta() {
       });
       return state;
 
+    case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE:
+      return action.state.customerMeta;
+
     default:
       return state;
   }
@@ -1941,6 +1967,9 @@ var customerML = function customerML() {
       state.serviceFeedbackSentiment = (state.serviceFeedbackSentiment + action.rating) / state.feedbackCount;
       return state;
 
+    case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE:
+      return action.state.customerML;
+
     default:
       return state;
   }
@@ -1953,6 +1982,13 @@ var customerML = function customerML() {
 
 module.exports = __webpack_require__("./pages/UserStore.js");
 
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 

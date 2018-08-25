@@ -4,6 +4,8 @@ import ProductPane from './product/ProductPane'
 import '../static/stylesheets/index.css'
 import {Component} from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
+import {serverLink} from '../constants'
 
 class User extends Component {
 
@@ -14,6 +16,7 @@ class User extends Component {
     }
 
     componentWillMount() {
+
         this.unsubscribe = this.props.store.subscribe(
             () => this.forceUpdate()
         )

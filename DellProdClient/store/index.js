@@ -1,12 +1,16 @@
-import {combineReducers, createStore} from 'redux'
+import {combineReducers, createStore, applyMiddleware} from 'redux'
 import {products, customerMeta, customerML} from './reducers'
 
-const storeFactory = (initState = {}) => {
+const saveToLocal = store => next => action => {
 
-    return createStore(
+    next(action)
+    localStorage['redux-store'] = JSON.stringify(store.getState())
+}
+
+const storeFactory = (initState = {}) =>
+    applyMiddleware(saveToLocal)(createStore)(
         combineReducers({products, customerMeta, customerML}), // use combine reducers for multiple reducers
         initState // initial state
     )
-}
 
 export default storeFactory
