@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import ProductModal from './ProductModal'
-import BoughtModal from './BoughtModal'
+import ThankModal from './ThankModal'
 import ReviewModal from './ReviewModal'
 import ComplaintModal from './ComplaintModal'
 import ComplaintFeedbackModal from './ComplaintFeedBackModal'

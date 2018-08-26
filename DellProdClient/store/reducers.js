@@ -18,7 +18,7 @@ export const products = (state = {}, action) => {
 
 export const customerMeta = (state = {}, action) => {
 
-    switch (action.type){
+    switch (action.type) {
 
         case C.BUY_PRODUCT:
             state.productsBought.push({
@@ -35,14 +35,17 @@ export const customerMeta = (state = {}, action) => {
                 placedOn: new Date(),
                 issue: action.complaint,
                 onGoing: true
-            }: null)
+            } : null)
             return state
 
         case C.COMPLAINT_FEEDBACK:
-            state.productsBought.forEach(item => item.asin === action.asin ? () => {
-                item.complaint.feedbackRating = action.rating
-                item.complaint.onGoing = false
-            }: null)
+            state.productsBought.forEach(item => {
+
+                if (item.asin === action.asin) {
+                    item.complaint.feedbackRating = action.rating
+                    item.complaint.onGoing = false
+                }
+            })
             return state
 
         case C.CHANGE_INIT_STATE:
@@ -55,7 +58,7 @@ export const customerMeta = (state = {}, action) => {
 
 export const customerML = (state = {}, action) => {
 
-    switch (action.type){
+    switch (action.type) {
 
         case C.BUY_PRODUCT:
             state['c' + action.categories] -= 1
@@ -68,7 +71,7 @@ export const customerML = (state = {}, action) => {
 
         case C.REVIEW_PRODUCT:
             state.reviewCount += 1
-            // call flask api
+            state.reviewSentiment = action.score
             return state
 
         case C.COMPLAINT_FEEDBACK:

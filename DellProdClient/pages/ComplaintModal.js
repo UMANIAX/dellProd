@@ -1,10 +1,12 @@
 import {Component} from 'react'
 import {complaintProduct} from "../actions"
+import ProductModal from "./ProductModal";
+import PropTypes from "prop-types";
 
 
 const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
 
-export default class ComplaintModal extends Component {
+class ComplaintModal extends Component {
 
     submit = e => {
 
@@ -13,15 +15,16 @@ export default class ComplaintModal extends Component {
         let {_complaintData} = this.refs
         _complaintData = _complaintData.value
 
-        const {info} = this.props
+        const {info, complaintPut} = this.props
         const {store} = this.context
 
         store.dispatch(complaintProduct(info.asin, _complaintData))
+        complaintPut(info)
     }
 
     render() {
 
-        const {info} = this.props
+        const {info, b2p} = this.props
 
         return (
 
@@ -40,7 +43,7 @@ export default class ComplaintModal extends Component {
                             <br/>
                             <button className="ui button">Submit</button>
                         </form><br/>
-                        <button className="ui button complaint-button-pad" onClick={() => backModal(info.asin)}>Go
+                        <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
                             Back
                         </button>
                     </div>
@@ -49,3 +52,9 @@ export default class ComplaintModal extends Component {
         )
     }
 }
+
+ComplaintModal.contextTypes = {
+    store: PropTypes.object
+}
+
+export default ComplaintModal

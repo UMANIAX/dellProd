@@ -14,11 +14,12 @@ export const viewProduct = (asin, cat) => ({
     categories: cat
 })
 
-export const reviewProduct = (asin, review) => ({
+export const reviewProduct = (asin, review, score) => ({
 
     type: C.REVIEW_PRODUCT,
     asin: asin,
-    review: review
+    review: review,
+    score: score
 })
 
 export const complaintProduct = (asin, complaint) => ({

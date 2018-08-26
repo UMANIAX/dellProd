@@ -4,10 +4,6 @@ import {complaintFeedback} from '../actions'
 import PropTypes from "prop-types";
 
 const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
-const submitRating = (rating, asin, store) => {
-
-    store.dispatch(complaintFeedback(asin, rating))
-}
 
 class ComplaintFeedBackModal extends Component {
 
@@ -17,9 +13,18 @@ class ComplaintFeedBackModal extends Component {
 
     updateRating = newRating => this.setState({count: newRating})
 
+    submitRating = () => {
+
+        const {info, feedbackPut} = this.props
+        const {store} = this.context
+
+        store.dispatch(complaintFeedback(info.asin, this.state.count))
+        feedbackPut(info)
+    }
+
     render() {
 
-        const {info} = this.props
+        const {info, b2p} = this.props
         const {store} = this.context
 
         return (
@@ -39,9 +44,9 @@ class ComplaintFeedBackModal extends Component {
                             </div>
                         </div>
                         <br/>
-                        <button className="ui button" onClick={() => submitRating(this.state, info.asin, store)}>Submit</button>
+                        <button className="ui button" onClick={() => this.submitRating()}>Submit</button>
                         <br/>
-                        <button className="ui button complaint-button-pad" onClick={() => backModal(info.asin)}>Go
+                        <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
                             Back
                         </button>
                     </div>
