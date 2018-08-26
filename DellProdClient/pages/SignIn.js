@@ -1,12 +1,26 @@
 import {Component} from 'react'
 import HeadComp from './HeadComp'
+import {serverLink} from '../constants'
+import axios from 'axios'
 
 export default class SignIn extends Component {
 
     submit = e => {
 
         e.preventDefault()
-        alert('You goin nigga?')
+    }
+
+    componentDidMount() {
+
+        if (localStorage['user']) {
+
+            axios.post(serverLink + '/sessionData', JSON.parse(localStorage['redux-store']))
+                .then(res => {
+
+                    delete localStorage['user']
+                    delete localStorage['redux-store']
+                })
+        }
     }
 
     render() {

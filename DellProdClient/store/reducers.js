@@ -5,7 +5,10 @@ export const products = (state = {}, action) => {
     switch (action.type) {
 
         case C.REVIEW_PRODUCT:
-            state.forEach(item => item.asin === action.asin ? item.reviews.push(action.review) : null)
+            state = state.map(item => {
+                item.asin === action.asin ? item.reviews.push(action.review) : null
+                return item
+            })
             return state
 
         case C.CHANGE_INIT_STATE:
@@ -27,24 +30,38 @@ export const customerMeta = (state = {}, action) => {
             return state
 
         case C.REVIEW_PRODUCT:
-            state.productsBought.forEach(item => item.asin === action.asin ? item.review = action.review : null)
+            state.productsBought = state.productsBought.map(item => {
+
+                item.asin === action.asin ? item.review = action.review : null
+                return item
+            })
             return state
 
         case C.COMPLAINT_PRODUCT:
-            state.productsBought.forEach(item => item.asin === action.asin ? item.complaint = {
-                placedOn: new Date(),
-                issue: action.complaint,
-                onGoing: true
-            } : null)
+            state.productsBought = state.productsBought.map(item => {
+
+                if (item.asin === action.asin)
+                    item.complaint = {
+                        placedOn: new Date(),
+                        issue: action.complaint,
+                        onGoing: true,
+                        isNew: true,
+                        id: action.complaintId
+                    }
+
+                return item
+            })
             return state
 
         case C.COMPLAINT_FEEDBACK:
-            state.productsBought.forEach(item => {
+            state.productsBought = state.productsBought.map(item => {
 
                 if (item.asin === action.asin) {
                     item.complaint.feedbackRating = action.rating
                     item.complaint.onGoing = false
                 }
+
+                return item
             })
             return state
 
@@ -67,6 +84,7 @@ export const customerML = (state = {}, action) => {
 
         case C.VIEW_PRODUCT:
             state['c' + action.categories] += 1
+            state.isAltered = true
             return state
 
         case C.REVIEW_PRODUCT:

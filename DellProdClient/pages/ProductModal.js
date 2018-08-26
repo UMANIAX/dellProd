@@ -13,8 +13,6 @@ class ProductModal extends Component {
         let isBought = 0
         let ongoingComplaint = 0
 
-        console.log(productsBought)
-
         productsBought.forEach(item => {
 
             if (item.asin === info.asin) {

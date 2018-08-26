@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const customerMLSchema = new Schema({
 
-    username: {type: String, required: true},
+    username: {type: String, required: true, unique: true},
     c1: {type: Number, default: 0},
     c2: {type: Number, default: 0},
     c3: {type: Number, default: 0},

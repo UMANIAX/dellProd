@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 const complaintSchema = new Schema({
 
-    userId: {type: String, required: true},
+    complaintId: {type: String, required: true, unique: true},
+    username: {type: String, required: true},
     asin: {type: String, required: true},
     complaintText: {type: String, default: null},
     onGoing: {type: Boolean, default: false},

@@ -15,7 +15,7 @@ import ComplaintFeedBackModal from "./ComplaintFeedBackModal";
 
 class User extends Component {
 
-    state = {active: 'pane', info: null}
+    state = {active: 'pane', info: 0}
 
     getChildContext() {
         return {
@@ -59,17 +59,21 @@ class User extends Component {
         this.setState({active: 'complaintFeedback', info: info})
     }
 
+    sideMenu = cat => this.setState({active: 'pane', info: cat})
+
     render() {
 
         return (
             <div>
 
-                <Navbar/>
+                <Navbar user={this.props.store.getState().customerMeta.username}/>
 
                 <div className="ui stackable four column grid">
-                    <div className="three wide column side-menu"><SideMenu/></div>
+                    <div className="three wide column side-menu"><SideMenu changeCat={this.sideMenu}
+                                                                           cat={this.state.info}/></div>
                     {this.state.active === 'pane' ?
-                        <div className="twelve wide column product-pane"><ProductPane showProduct={this.showProduct}/>
+                        <div className="twelve wide column product-pane"><ProductPane cat={this.state.info}
+                                                                                      showProduct={this.showProduct}/>
                         </div> : (this.state.active === 'product' ?
                             <ProductModal buy={this.thanks} review={this.reviewProduct}
                                           complaint={this.complaintProduct} complaintFeedback={this.complaintFeedback}

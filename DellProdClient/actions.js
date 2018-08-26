@@ -1,5 +1,7 @@
 import C from './constants'
 
+const uuidv1 = require('uuid/v1')
+
 export const buyProduct = (asin, cat) => ({
 
     type: C.BUY_PRODUCT,
@@ -25,6 +27,7 @@ export const reviewProduct = (asin, review, score) => ({
 export const complaintProduct = (asin, complaint) => ({
 
     type: C.COMPLAINT_PRODUCT,
+    complaintId: uuidv1(),
     asin: asin,
     complaint: complaint
 })

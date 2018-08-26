@@ -14,11 +14,12 @@ export default class UserStore extends Component {
     static async getInitialProps({ query: { id } }) {
 
         const dbFetch = await axios(serverLink + '/data/' + id)
-        return {incomingData: dbFetch.data}
+        return {incomingData: dbFetch.data, id: id}
     }
 
     componentDidMount() {
 
+        localStorage['user'] = this.props.id
         localStorage['redux-store'] ? store.dispatch(changeInitState(JSON.parse(localStorage['redux-store']))) : null
     }
 

@@ -15,6 +15,9 @@ __NEXT_REGISTER_PAGE('/UserStore', function() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return changeInitState; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__("./constants.js");
 
+
+var uuidv1 = __webpack_require__("./node_modules/next/node_modules/uuid/v1.js");
+
 var buyProduct = function buyProduct(asin, cat) {
   return {
     type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].BUY_PRODUCT,
@@ -40,6 +43,7 @@ var reviewProduct = function reviewProduct(asin, review, score) {
 var complaintProduct = function complaintProduct(asin, complaint) {
   return {
     type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].COMPLAINT_PRODUCT,
+    complaintId: uuidv1(),
     asin: asin,
     complaint: complaint
   };
@@ -3389,6 +3393,184 @@ module.exports = __webpack_require__("./node_modules/next/dist/lib/head.js")
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./node_modules/next/dist/lib/link.js")
+
+
+/***/ }),
+
+/***/ "./node_modules/next/node_modules/uuid/lib/bytesToUuid.js":
+/***/ (function(module, exports) {
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  return bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+module.exports = bytesToUuid;
+
+
+/***/ }),
+
+/***/ "./node_modules/next/node_modules/uuid/lib/rng-browser.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
+// browser this is a little complicated due to unknown quality of Math.random()
+// and inconsistent support for the `crypto` API.  We do the best we can via
+// feature-detection
+var rng;
+
+var crypto = global.crypto || global.msCrypto; // for IE 11
+if (crypto && crypto.getRandomValues) {
+  // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
+  var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
+  rng = function whatwgRNG() {
+    crypto.getRandomValues(rnds8);
+    return rnds8;
+  };
+}
+
+if (!rng) {
+  // Math.random()-based (RNG)
+  //
+  // If all else fails, use Math.random().  It's fast, but is of unspecified
+  // quality.
+  var rnds = new Array(16);
+  rng = function() {
+    for (var i = 0, r; i < 16; i++) {
+      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
+      rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    }
+
+    return rnds;
+  };
+}
+
+module.exports = rng;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/next/node_modules/uuid/v1.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var rng = __webpack_require__("./node_modules/next/node_modules/uuid/lib/rng-browser.js");
+var bytesToUuid = __webpack_require__("./node_modules/next/node_modules/uuid/lib/bytesToUuid.js");
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+// random #'s we need to init node and clockseq
+var _seedBytes = rng();
+
+// Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+var _nodeId = [
+  _seedBytes[0] | 0x01,
+  _seedBytes[1], _seedBytes[2], _seedBytes[3], _seedBytes[4], _seedBytes[5]
+];
+
+// Per 4.2.2, randomize (14 bit) clockseq
+var _clockseq = (_seedBytes[6] << 8 | _seedBytes[7]) & 0x3fff;
+
+// Previous uuid creation time
+var _lastMSecs = 0, _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  var node = options.node || _nodeId;
+  for (var n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : bytesToUuid(b);
+}
+
+module.exports = v1;
 
 
 /***/ }),
@@ -7183,37 +7365,53 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Hea
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css__ = __webpack_require__("./static/stylesheets/navbar.css");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("./node_modules/next/link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Navbar.js";
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+
+/* harmony default export */ __webpack_exports__["a"] = (function (_ref) {
+  var user = _ref.user;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "ui inverted menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
     className: "item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
     className: "imgDim",
     src: "/static/dell-logo.png",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     }
   })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
     className: "item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     }
-  }, "Hey Guardiola"));
+  }, user), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_next_link___default.a, {
+    href: "/SignIn",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "item right",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    }
+  }, "Log Out")));
 });
     (function (Component, route) {
       if(!Component) return
@@ -7461,7 +7659,6 @@ function (_Component) {
       var productsBought = store.getState().customerMeta.productsBought;
       var isBought = 0;
       var ongoingComplaint = 0;
-      console.log(productsBought);
       productsBought.forEach(function (item) {
         if (item.asin === info.asin) {
           isBought = 1;
@@ -7472,55 +7669,55 @@ function (_Component) {
         className: "ui segment main",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 26
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 27
         }
       }, info.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 28
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "image img-size",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 29
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 30
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 31
         }
       }, info.description), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui horizontal segments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 32
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 33
         }
       }, isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui green button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 35
         }
       }, "Buy Now $ ", info.price) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui green button",
@@ -7530,19 +7727,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 36
         }
       }, "Buy Now $ ", info.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 43
         }
       }, !isBought || ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 45
         }
       }, "Issue Complain") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red",
@@ -7551,19 +7748,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 47
         }
       }, "Issue Complain")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 51
         }
       }, !isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         }
       }, "Review") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button",
@@ -7572,25 +7769,25 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 54
         }
       }, "Review"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui horizontal segments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 58
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 59
         }
       }, !isBought || !ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 61
         }
       }, "Complaint Feedback") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button",
@@ -7599,13 +7796,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 63
         }
       }, "Complaint Feedback")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment centered",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 67
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button",
@@ -7614,7 +7811,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 68
         }
       }, "Go Back"))))));
     }
@@ -7694,31 +7891,36 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
+      var cat = this.props.cat;
       var store = this.context.store;
 
       var _store$getState = store.getState(),
           products = _store$getState.products;
 
+      var displayProducts = products.filter(function (item) {
+        return item.categories == cat;
+      });
+      if (!displayProducts.length) displayProducts = products;
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "ui stackable five column grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 19
         }
-      }, products.map(function (item, index) {
+      }, displayProducts.map(function (item, index) {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           className: "column",
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 20
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__ProductCard__["a" /* default */], {
           showProduct: _this.props.showProduct,
           info: item,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 20
           }
         }));
       }));
@@ -7992,7 +8194,9 @@ ReviewModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/SideMenu.js";
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+/* harmony default export */ __webpack_exports__["a"] = (function (_ref) {
+  var cat = _ref.cat,
+      changeCat = _ref.changeCat;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "ui large vertical menu",
     __source: {
@@ -8000,25 +8204,37 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Sid
       lineNumber: 2
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "active item",
+    className: cat === 0 ? "item active" : "item",
+    onClick: function onClick() {
+      return changeCat(0);
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 3
     }
   }, "All Products"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "item",
+    className: cat === 1 ? "item active" : "item",
+    onClick: function onClick() {
+      return changeCat(1);
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
     }
   }, "Category 1"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "item",
+    className: cat === 2 ? "item active" : "item",
+    onClick: function onClick() {
+      return changeCat(2);
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
   }, "Category 2"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "item",
+    className: cat === 3 ? "item active" : "item",
+    onClick: function onClick() {
+      return changeCat(3);
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
@@ -8241,7 +8457,7 @@ function (_Component) {
       writable: true,
       value: {
         active: 'pane',
-        info: null
+        info: 0
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "showProduct", {
       configurable: true,
@@ -8315,6 +8531,16 @@ function (_Component) {
           info: info
         });
       }
+    }), Object.defineProperty(_assertThisInitialized(_this), "sideMenu", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(cat) {
+        return _this.setState({
+          active: 'pane',
+          info: cat
+        });
+      }
     }), _temp));
   }
 
@@ -8345,41 +8571,45 @@ function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 67
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Navbar__["a" /* default */], {
+        user: this.props.store.getState().customerMeta.username,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 69
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui stackable four column grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 71
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "three wide column side-menu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 72
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__SideMenu__["a" /* default */], {
+        changeCat: this.sideMenu,
+        cat: this.state.info,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 72
         }
       })), this.state.active === 'pane' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "twelve wide column product-pane",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 75
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ProductPane__["a" /* default */], {
+        cat: this.state.info,
         showProduct: this.showProduct,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 75
         }
       })) : this.state.active === 'product' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__ProductModal__["a" /* default */], {
         buy: this.thanks,
@@ -8390,14 +8620,14 @@ function (_Component) {
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 78
         }
       }) : this.state.active === 'buy' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__ThankModal__["a" /* default */], {
         info: this.state.info,
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 82
         }
       }) : this.state.active === 'review' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__ReviewModal__["a" /* default */], {
         info: this.state.info,
@@ -8405,7 +8635,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 84
         }
       }) : this.state.active === 'complaint' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__ComplaintModal__["a" /* default */], {
         info: this.state.info,
@@ -8413,7 +8643,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 87
         }
       }) : this.state.active === 'complaintFeedback' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__ComplaintFeedBackModal__["a" /* default */], {
         info: this.state.info,
@@ -8421,7 +8651,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 91
         }
       }) : null));
     }
@@ -8516,6 +8746,7 @@ function (_Component) {
   _createClass(UserStore, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      localStorage['user'] = this.props.id;
       localStorage['redux-store'] ? store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__actions__["b" /* changeInitState */])(JSON.parse(localStorage['redux-store']))) : null;
     }
   }, {
@@ -8533,18 +8764,18 @@ function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 32
         }
       }, __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__HeadComp__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         }
       }), __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__User__["a" /* default */], {
         store: store,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         }
       }));
     }
@@ -8566,7 +8797,8 @@ function (_Component) {
               case 3:
                 dbFetch = _context.sent;
                 return _context.abrupt("return", {
-                  incomingData: dbFetch.data
+                  incomingData: dbFetch.data,
+                  id: id
                 });
 
               case 5:
@@ -8766,8 +8998,9 @@ var products = function products() {
 
   switch (action.type) {
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].REVIEW_PRODUCT:
-      state.forEach(function (item) {
-        return item.asin === action.asin ? item.reviews.push(action.review) : null;
+      state = state.map(function (item) {
+        item.asin === action.asin ? item.reviews.push(action.review) : null;
+        return item;
       });
       return state;
 
@@ -8790,27 +9023,33 @@ var customerMeta = function customerMeta() {
       return state;
 
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].REVIEW_PRODUCT:
-      state.productsBought.forEach(function (item) {
-        return item.asin === action.asin ? item.review = action.review : null;
+      state.productsBought = state.productsBought.map(function (item) {
+        item.asin === action.asin ? item.review = action.review : null;
+        return item;
       });
       return state;
 
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].COMPLAINT_PRODUCT:
-      state.productsBought.forEach(function (item) {
-        return item.asin === action.asin ? item.complaint = {
+      state.productsBought = state.productsBought.map(function (item) {
+        if (item.asin === action.asin) item.complaint = {
           placedOn: new Date(),
           issue: action.complaint,
-          onGoing: true
-        } : null;
+          onGoing: true,
+          isNew: true,
+          id: action.complaintId
+        };
+        return item;
       });
       return state;
 
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].COMPLAINT_FEEDBACK:
-      state.productsBought.forEach(function (item) {
+      state.productsBought = state.productsBought.map(function (item) {
         if (item.asin === action.asin) {
           item.complaint.feedbackRating = action.rating;
           item.complaint.onGoing = false;
         }
+
+        return item;
       });
       return state;
 
@@ -8833,6 +9072,7 @@ var customerML = function customerML() {
 
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].VIEW_PRODUCT:
       state['c' + action.categories] += 1;
+      state.isAltered = true;
       return state;
 
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].REVIEW_PRODUCT:

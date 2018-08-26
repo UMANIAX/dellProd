@@ -4,17 +4,19 @@ const bcrypt = require('bcryptjs')
 
 const customerMetaSchema = new Schema({
 
-    username: {type: String, required: true},
+    username: {type: String, required: true, unique: true},
     password: {type: String},
     productsBought: [
         {
-            asin: {type: String},
+            asin: {type: String, default: null},
             review: {type: String, default: null},
             complaint: {
+                id: {type: String, default: null, unique: true},
                 placedOn: {type: Date, default: null},
                 issue: {type: String, default: null},
                 feedbackRating: {type: Number, default: null},
-                onGoing: {type: Boolean, default: false}
+                onGoing: {type: Boolean, default: false},
+                isNew: {type: Boolean, default: false}
             },
         }
     ],
