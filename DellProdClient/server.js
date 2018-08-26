@@ -14,6 +14,10 @@ app.prepare()
             return app.render(req, res, '/UserStore', { id: req.params.id })
         })
 
+        // server.get('/ProductModal/:id', (req, res) => {
+        //     return app.render(req, res, '/ProductModal', { id: req.params.id })
+        // })
+
         server.get('*', (req, res) => {
             return handle(req, res)
         })

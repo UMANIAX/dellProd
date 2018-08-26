@@ -15,7 +15,7 @@ export default class App extends Component {
 
         return (
             <div>
-                {this.state.user ? <Link href={{pathname: '/UserStory', query: { id: this.state.user }}}
+                {this.state.user ? <Link href={{pathname: '/UserStore', query: { id: this.state.user }}}
                                          as={`/UserStore/${this.state.user}`}><a>hello</a></Link> :
                     <Link href="/SignIn"><a>hello</a></Link>}
             </div>

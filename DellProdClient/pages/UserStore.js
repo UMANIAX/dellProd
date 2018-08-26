@@ -20,7 +20,6 @@ export default class UserStore extends Component {
     componentDidMount() {
 
         localStorage['redux-store'] ? store.dispatch(changeInitState(JSON.parse(localStorage['redux-store']))) : null
-        console.log(store.getState())
     }
 
     render() {

@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/', function() {
           var comp =
-      webpackJsonp([4],{
+      webpackJsonp([6],{
 
 /***/ "./node_modules/@babel/runtime/core-js/json/stringify.js":
 /***/ (function(module, exports, __webpack_require__) {
@@ -977,7 +977,7 @@ function (_Component) {
         }
       }, this.state.user ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
         href: {
-          pathname: '/UserStory',
+          pathname: '/UserStore',
           query: {
             id: this.state.user
           }
@@ -1074,7 +1074,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ind
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
@@ -1082,7 +1082,7 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /***/ })
 
-},[3])
+},[5])
           return { page: comp.default }
         })
       ;
