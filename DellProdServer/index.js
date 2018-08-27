@@ -7,6 +7,25 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.listen(process.env.PORT || 8080)
 
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
 app.get('/data/:id', async function (req, res) {
 
     const products = await db.ProductData.find()
@@ -68,6 +87,18 @@ app.post('/sessionData', async function (req, res) {
     await db.CustomerMetaData.findOneAndUpdate({username: customerMeta.username}, customerMeta)
 
     res.send('cool')
+})
+
+app.post('/login', async function (req, res) {
+
+    const {user} = req.body
+    const data = await db.CustomerMetaData.findOne({username: user})
+
+    if (data)
+        res.send(user)
+
+    else
+        res.send(null)
 })
 
 // app.get('/putData', function (req, res) {

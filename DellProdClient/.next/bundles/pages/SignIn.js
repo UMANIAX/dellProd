@@ -1777,16 +1777,21 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Hea
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SignIn; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__("./constants.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__("./node_modules/axios/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__("./constants.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
+
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/SignIn.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1825,17 +1830,59 @@ function (_Component) {
       configurable: true,
       enumerable: true,
       writable: true,
-      value: function value(e) {
-        e.preventDefault();
-      }
+      value: function () {
+        var _value = _asyncToGenerator(
+        /*#__PURE__*/
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
+          var _this$refs, _username, _password, _ref2, data;
+
+          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  e.preventDefault();
+                  _this$refs = _this.refs, _username = _this$refs._username, _password = _this$refs._password;
+                  _username = _username.value;
+                  _password = _password.value;
+                  _context.next = 6;
+                  return __WEBPACK_IMPORTED_MODULE_4_axios___default.a.post(__WEBPACK_IMPORTED_MODULE_3__constants__["b" /* serverLink */] + '/login', {
+                    user: _username
+                  });
+
+                case 6:
+                  _ref2 = _context.sent;
+                  data = _ref2.data;
+
+                  if (data) {
+                    _context.next = 10;
+                    break;
+                  }
+
+                  return _context.abrupt("return", alert('Invalid User'));
+
+                case 10:
+                  window.location = '/UserStore/' + _username;
+
+                case 11:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        return function value(_x) {
+          return _value.apply(this, arguments);
+        };
+      }()
     }), _temp));
   }
 
   _createClass(SignIn, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (localStorage['user']) {
-        __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post(__WEBPACK_IMPORTED_MODULE_2__constants__["b" /* serverLink */] + '/sessionData', JSON.parse(localStorage['redux-store'])).then(function (res) {
+      if (localStorage['user'] && localStorage['redux-store']) {
+        __WEBPACK_IMPORTED_MODULE_4_axios___default.a.post(__WEBPACK_IMPORTED_MODULE_3__constants__["b" /* serverLink */] + '/sessionData', JSON.parse(localStorage['redux-store'])).then(function (res) {
           delete localStorage['user'];
           delete localStorage['redux-store'];
         });
@@ -1844,81 +1891,83 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "custom-form",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 40
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__HeadComp__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__HeadComp__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 41
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "ui container segment",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 42
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("form", {
         className: "ui form",
         onSubmit: this.submit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 43
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "field",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 44
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 45
         }
-      }, "Username"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+      }, "Username"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         type: "text",
         name: "username",
         placeholder: "Username",
+        ref: "_username",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 46
         }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "field",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 48
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 49
         }
-      }, "Password"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+      }, "Password"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         type: "password",
         name: "password",
         placeholder: "Password",
+        ref: "_password",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 50
         }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button",
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 52
         }
       }, "Submit"))));
     }
   }]);
 
   return SignIn;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
 
     (function (Component, route) {
@@ -1943,7 +1992,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/SignIn.js");
@@ -1951,7 +2000,7 @@ module.exports = __webpack_require__("./pages/SignIn.js");
 
 /***/ })
 
-},[4])
+},[5])
           return { page: comp.default }
         })
       ;

@@ -5,14 +5,25 @@ import axios from 'axios'
 
 export default class SignIn extends Component {
 
-    submit = e => {
+    submit = async e => {
 
         e.preventDefault()
+
+        let {_username, _password} = this.refs
+        _username = _username.value
+        _password = _password.value
+
+        const {data} = await axios.post(serverLink + '/login', {user: _username})
+
+        if (!data)
+            return alert('Invalid User')
+
+        window.location = '/UserStore/' + _username
     }
 
     componentDidMount() {
 
-        if (localStorage['user']) {
+        if (localStorage['user'] && localStorage['redux-store']) {
 
             axios.post(serverLink + '/sessionData', JSON.parse(localStorage['redux-store']))
                 .then(res => {
@@ -32,11 +43,11 @@ export default class SignIn extends Component {
                     <form className="ui form" onSubmit={this.submit}>
                         <div className="field">
                             <label>Username</label>
-                            <input type="text" name="username" placeholder="Username"/>
+                            <input type="text" name="username" placeholder="Username" ref="_username"/>
                         </div>
                         <div className="field">
                             <label>Password</label>
-                            <input type="password" name="password" placeholder="Password"/>
+                            <input type="password" name="password" placeholder="Password" ref="_password"/>
                         </div>
                         <button className="ui button" type="submit">Submit</button>
                     </form>
