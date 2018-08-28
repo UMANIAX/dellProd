@@ -92,11 +92,6 @@ export const customerML = (state = {}, action) => {
             state.reviewSentiment = action.score
             return state
 
-        case C.COMPLAINT_FEEDBACK:
-            state.feedbackCount += 1
-            state.serviceFeedbackSentiment = (state.serviceFeedbackSentiment + action.rating) / state.feedbackCount
-            return state
-
         case C.CHANGE_INIT_STATE:
             return action.state.customerML
 

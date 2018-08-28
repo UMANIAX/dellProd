@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/UserStore', function() {
           var comp =
-      webpackJsonp([4],{
+      webpackJsonp([5],{
 
 /***/ "./actions.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -69,7 +69,8 @@ var changeInitState = function changeInitState(state) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return serverLink; });
-var serverLink = 'http://localhost:8080';
+var serverLink = 'http://localhost:8080'; // 'https://dellnodeserver.herokuapp.com'
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   BUY_PRODUCT: 'BUY_PRODUCT',
   VIEW_PRODUCT: 'VIEW_PRODUCT',
@@ -6841,10 +6842,20 @@ module.exports = function(originalModule) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__("./actions.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ComplaintFeedBackModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6863,9 +6874,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var backModal = function backModal(id) {
-  return $("#".concat(id, " .ui.modal.main")).modal('show');
-};
 
 var ComplaintFeedBackModal =
 /*#__PURE__*/
@@ -6883,20 +6891,64 @@ function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = ComplaintFeedBackModal.__proto__ || Object.getPrototypeOf(ComplaintFeedBackModal)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = ComplaintFeedBackModal.__proto__ || Object.getPrototypeOf(ComplaintFeedBackModal)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "questions", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: ["1. When using our services recently, how would you rate the level of service?:", "2. Satisfaction with regards to how your problem was dealt with", "3. Rate the attitude and general demeanour of the customer service employee:", "4. Rate how well was the customer service employee informed on the subject matter:", "5. Satisfaction regarding the time to wait for the query to be answered:"]
+    }), Object.defineProperty(_assertThisInitialized(_this), "state", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: {
-        count: 1
+        rateArr: _this.questions.map(function () {
+          return 1;
+        })
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "questionnaire", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(ind) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "ui horizontal segments",
+          key: ind,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          }
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "ui segment",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          }
+        }, _this.questions[ind]), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "ui segment",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__stars_RatingStars__["a" /* default */], {
+          currentRate: _this.state.rateArr[ind],
+          index: ind,
+          update: _this.updateRating,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        })));
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "updateRating", {
       configurable: true,
       enumerable: true,
       writable: true,
-      value: function value(newRating) {
-        return _this.setState({
-          count: newRating
+      value: function value(index, newRating) {
+        var newArr = _this.state.rateArr;
+        newArr[index] = newRating;
+
+        _this.setState({
+          rateArr: newArr
         });
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "submitRating", {
@@ -6908,7 +6960,26 @@ function (_Component) {
             info = _this$props.info,
             feedbackPut = _this$props.feedbackPut;
         var store = _this.context.store;
-        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* complaintFeedback */])(info.asin, _this.state.count));
+        var _complaintReview = _this.refs._complaintReview;
+        var sendData = {
+          'username': localStorage['user'].toString(),
+          'level of services you received': _this.state.rateArr[0].toString(),
+          'satisfied with how your problem was dealt': _this.state.rateArr[1].toString(),
+          'demeanour of the customer service employee': _this.state.rateArr[2].toString(),
+          'employee to be very well informed': _this.state.rateArr[3].toString(),
+          'wait for my query acceptable': _this.state.rateArr[4].toString(),
+          'Feedback': _complaintReview.value.toString()
+        };
+        var formData = new FormData();
+
+        for (var key in sendData) {
+          formData.append(key, sendData[key]);
+        }
+
+        __WEBPACK_IMPORTED_MODULE_4_axios___default.a.post('https://service-area.herokuapp.com/customerSurvey', formData);
+        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* complaintFeedback */])(info.asin, _this.state.rateArr.reduce(function (acc, curr) {
+          return acc += curr;
+        }) / _this.state.rateArr.length));
         feedbackPut(info);
       }
     }), _temp));
@@ -6922,86 +6993,89 @@ function (_Component) {
       var _props = this.props,
           info = _props.info,
           b2p = _props.b2p;
-      var store = this.context.store;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui segment complaint-feedback",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 70
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 71
         }
       }, "Please enter feedback of a specific complaint"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 72
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "image img-size",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 73
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 74
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 75
         }
-      }, info.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui horizontal segments",
+      }, info.title), _toConsumableArray(Array(this.questions.length)).map(function (item, index) {
+        return _this2.questionnaire(index);
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 77
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+        onSubmit: this.submitRating,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 79
         }
-      }, "Rate your experience with our team"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 80
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__stars_RatingStars__["a" /* default */], {
-        currentRate: this.state.count,
-        update: this.updateRating,
+      }, " Please describe your experience with our customer care sevice below :"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", {
+        name: "Feedback",
+        rows: "10",
+        cols: "80",
+        ref: "_complaintReview",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 81
         }
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 81
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button",
-        onClick: function onClick() {
-          return _this2.submitRating();
-        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 82
         }
-      }, "Submit"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }, "Submit"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 85
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button complaint-button-pad",
@@ -7010,7 +7084,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 86
         }
       }, "Go Back"))));
     }
@@ -7514,6 +7588,7 @@ function (_Component) {
           lineNumber: 22
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        className: "card-img",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
@@ -8037,7 +8112,7 @@ function (_Component) {
                   store = _this.context.store;
                   _store$getState$custo = store.getState().customerML, reviewCount = _store$getState$custo.reviewCount, reviewSentiment = _store$getState$custo.reviewSentiment;
                   _context.next = 8;
-                  return __WEBPACK_IMPORTED_MODULE_5_axios_index___default.a.get("http://service-area.herokuapp.com/ibm?reviewText=".concat(_reviewData, "&reviewCount=").concat(reviewCount, "0&prevReviewScore=").concat(reviewSentiment));
+                  return __WEBPACK_IMPORTED_MODULE_5_axios_index___default.a.get("https://service-area.herokuapp.com/ibm?reviewText=".concat(_reviewData, "&reviewCount=").concat(reviewCount, "0&prevReviewScore=").concat(reviewSentiment));
 
                 case 8:
                   _ref2 = _context.sent;
@@ -8862,7 +8937,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /* harmony default export */ __webpack_exports__["a"] = (function (_ref) {
   var currentRate = _ref.currentRate,
-      update = _ref.update;
+      update = _ref.update,
+      index = _ref.index;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
@@ -8873,7 +8949,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       key: ind,
       checked: ind < currentRate,
       onStarClick: function onStarClick() {
-        return update(ind + 1);
+        return update(index, ind + 1);
       },
       __source: {
         fileName: _jsxFileName,
@@ -9080,11 +9156,6 @@ var customerML = function customerML() {
       state.reviewSentiment = action.score;
       return state;
 
-    case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].COMPLAINT_FEEDBACK:
-      state.feedbackCount += 1;
-      state.serviceFeedbackSentiment = (state.serviceFeedbackSentiment + action.rating) / state.feedbackCount;
-      return state;
-
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE:
       return action.state.customerML;
 
@@ -9095,7 +9166,7 @@ var customerML = function customerML() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/UserStore.js");
@@ -9103,7 +9174,7 @@ module.exports = __webpack_require__("./pages/UserStore.js");
 
 /***/ })
 
-},[3])
+},[4])
           return { page: comp.default }
         })
       ;

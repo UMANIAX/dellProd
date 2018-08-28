@@ -20,7 +20,7 @@ class ProductCard extends Component {
             <div className="ui link cards" id={info.asin}>
                 <div className="card">
                     <div className="image">
-                        <img src={info.imgURL}/>
+                        <img className="card-img" src={info.imgURL}/>
                     </div>
                     <div className="content">
                         <div className="header">{info.title}</div>

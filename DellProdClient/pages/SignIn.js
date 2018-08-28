@@ -14,10 +14,6 @@ export default class SignIn extends Component {
         _password = _password.value
 
         const {data} = await axios.post(serverLink + '/login', {user: _username})
-
-        if (!data)
-            return alert('Invalid User')
-
         window.location = '/UserStore/' + _username
     }
 

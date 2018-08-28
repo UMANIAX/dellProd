@@ -2,30 +2,68 @@ import {Component} from 'react'
 import RatingStars from './stars/RatingStars'
 import {complaintFeedback} from '../actions'
 import PropTypes from "prop-types";
-
-const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
+import axios from 'axios'
 
 class ComplaintFeedBackModal extends Component {
 
+    questions = [
+        "1. When using our services recently, how would you rate the level of service?:",
+        "2. Satisfaction with regards to how your problem was dealt with",
+        "3. Rate the attitude and general demeanour of the customer service employee:",
+        "4. Rate how well was the customer service employee informed on the subject matter:",
+        "5. Satisfaction regarding the time to wait for the query to be answered:"
+    ]
+
     state = {
-        count: 1
+        rateArr: this.questions.map(() => 1)
     }
 
-    updateRating = newRating => this.setState({count: newRating})
+    questionnaire = ind =>
+        <div className="ui horizontal segments" key={ind}>
+            <div className="ui segment">
+                {this.questions[ind]}
+            </div>
+            <div className="ui segment">
+                <RatingStars currentRate={this.state.rateArr[ind]} index={ind} update={this.updateRating}/>
+            </div>
+        </div>
+
+    updateRating = (index, newRating) => {
+        let newArr = this.state.rateArr
+        newArr[index] = newRating
+        this.setState({rateArr: newArr})
+    }
 
     submitRating = () => {
 
         const {info, feedbackPut} = this.props
         const {store} = this.context
+        const {_complaintReview} = this.refs
 
-        store.dispatch(complaintFeedback(info.asin, this.state.count))
+        const sendData = {
+            'username': localStorage['user'].toString(),
+            'level of services you received': this.state.rateArr[0].toString(),
+            'satisfied with how your problem was dealt': this.state.rateArr[1].toString(),
+            'demeanour of the customer service employee': this.state.rateArr[2].toString(),
+            'employee to be very well informed': this.state.rateArr[3].toString(),
+            'wait for my query acceptable': this.state.rateArr[4].toString(),
+            'Feedback': _complaintReview.value.toString()
+        }
+
+        const formData = new FormData()
+
+        for (let key in sendData)
+            formData.append(key, sendData[key])
+
+        axios.post('https://service-area.herokuapp.com/customerSurvey', formData)
+
+        store.dispatch(complaintFeedback(info.asin, (this.state.rateArr.reduce((acc, curr) => acc += curr)) / this.state.rateArr.length))
         feedbackPut(info)
     }
 
     render() {
 
         const {info, b2p} = this.props
-        const {store} = this.context
 
         return (
 
@@ -35,16 +73,15 @@ class ComplaintFeedBackModal extends Component {
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">
                         <h4>{info.title}</h4>
-                        <div className="ui horizontal segments">
-                            <div className="ui segment">
-                                Rate your experience with our team
-                            </div>
-                            <div className="ui segment">
-                                <RatingStars currentRate={this.state.count} update={this.updateRating}/>
-                            </div>
-                        </div>
+                        {[...Array(this.questions.length)].map((item, index) => this.questionnaire(index))}
                         <br/>
-                        <button className="ui button" onClick={() => this.submitRating()}>Submit</button>
+                        <form onSubmit={this.submitRating}>
+                            <div>
+                            <p> Please describe your experience with our customer care sevice below :</p>
+                                <textarea name="Feedback" rows="10" cols="80" ref="_complaintReview"/><br/>
+                                <button className="ui button">Submit</button>
+                            </div>
+                        </form>
                         <br/>
                         <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
                             Back
@@ -52,12 +89,12 @@ class ComplaintFeedBackModal extends Component {
                     </div>
                 </div>
             </div>
-        )
+    )
     }
-}
+    }
 
-ComplaintFeedBackModal.contextTypes = {
-    store: PropTypes.object
-}
+    ComplaintFeedBackModal.contextTypes = {
+        store: PropTypes.object
+    }
 
-export default ComplaintFeedBackModal
+    export default ComplaintFeedBackModal

@@ -20,7 +20,7 @@ class ReviewModal extends Component {
 
         const {reviewCount, reviewSentiment} = store.getState().customerML
 
-        const {data} = await axios.get(`http://service-area.herokuapp.com/ibm?reviewText=${_reviewData}&reviewCount=${reviewCount}0&prevReviewScore=${reviewSentiment}`)
+        const {data} = await axios.get(`https://service-area.herokuapp.com/ibm?reviewText=${_reviewData}&reviewCount=${reviewCount}0&prevReviewScore=${reviewSentiment}`)
         const {score} = data
 
         store.dispatch(reviewProduct(info.asin, _reviewData, score))
