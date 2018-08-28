@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
+import Complaint_Reviews from './reviewCards/Complaint_Reviews'
 import {buyProduct, viewProduct} from "../actions";
 
 class ProductModal extends Component {
@@ -21,55 +22,71 @@ class ProductModal extends Component {
             }
         })
 
+        let productReviews = undefined
+        store.getState().products.forEach(item => item.asin === info.asin ? productReviews = item.reviews : null)
+
+        const reviewData = productReviews.map(item => {
+
+            const [review, username, date] = item.split('::::')
+            return {review, username, date}
+        })
+
         return (
 
-            <div className="ui segment main">
-                <div className="header">{info.title}</div>
-                <div className="image content">
-                    <img className="image img-size" src={info.imgURL}/>
-                    <div className="description">
-                        <p>{info.description}</p>
-                        <div className="ui horizontal segments">
-                            <div className="ui segment centered">
-                                {isBought ?
-                                    <button className="ui green button disabled">Buy Now $ {info.price}</button> :
-                                    <button className="ui green button"
-                                            onClick={() => {
-                                                store.dispatch(buyProduct(info.asin, info.categories))
-                                                buy(info)
-                                            }}>Buy Now
-                                        $ {info.price}</button>}
-                            </div>
-                            <div className="ui segment centered">
-                                {(!isBought || ongoingComplaint) ?
-                                    <button className="ui button red disabled">Issue
-                                        Complain</button> :
-                                    <button className="ui button red" onClick={() => complaint(info)}>Issue
-                                        Complain
-                                    </button>}
-                            </div>
-                            <div className="ui segment centered">
-                                {!isBought ?
-                                    <button className="ui pink button disabled">Review</button> :
-                                    <button className="ui pink button" onClick={() => review(info)}>Review
-                                    </button>}
-                            </div>
-                        </div>
-                        <div className="ui horizontal segments">
-                            <div className="ui segment centered">
-                                {(!isBought || !ongoingComplaint) ?
-                                    <button className="ui orange button disabled">Complaint Feedback
-                                    </button> :
-                                    <button className="ui orange button"
-                                            onClick={() => complaintFeedback(info)}>Complaint Feedback
-                                    </button>}
-                            </div>
-                            <div className="ui segment centered">
-                                <button className="ui button" onClick={() => b2h()}>Go Back</button>
+            <div className="ui grid">
+                <div className="twelve wide column">
+                    <div className="ui raised segment container main product-modal">
+                        <div className="header"><a className="ui red ribbon label">$ {info.price}</a></div>
+                        <div className="image content" align="center">
+                            <img className="image img-size" src={info.imgURL}/>
+                            <div className="description">
+                                <h2 className="ui header">
+                                    <div className="content">
+                                        {info.title}
+                                        <div className="sub header">{info.description}</div>
+                                    </div>
+                                </h2>
+                                <div className="ui grid centered button-len">
+                                    <div className="three wide column">
+                                        {isBought ?
+                                            <button className="ui green button disabled">Buy Now</button> :
+                                            <button className="ui green button"
+                                                    onClick={() => {
+                                                        store.dispatch(buyProduct(info.asin, info.categories))
+                                                        buy(info)
+                                                    }}>Buy Now</button>}
+                                    </div>
+                                    <div className="three wide column">
+                                        {(!isBought || ongoingComplaint) ?
+                                            <button className="ui button red disabled">Issue
+                                                Complain</button> :
+                                            <button className="ui button red" onClick={() => complaint(info)}>Issue
+                                                Complain
+                                            </button>}
+                                    </div>
+                                    <div className="three wide column">
+                                        {!isBought ?
+                                            <button className="ui pink button disabled">Review</button> :
+                                            <button className="ui pink button" onClick={() => review(info)}>Review
+                                            </button>}
+                                    </div>
+                                    <div className="three wide column">
+                                        {(!isBought || !ongoingComplaint) ?
+                                            <button className="ui orange button disabled">Complaint Feedback
+                                            </button> :
+                                            <button className="ui orange button"
+                                                    onClick={() => complaintFeedback(info)}>Complaint Feedback
+                                            </button>}
+                                    </div>
+                                </div>
+                                <div className="go-back-but">
+                                    <button className="ui button" onClick={() => b2h()}>Go Back</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="four wide column"><Complaint_Reviews reviews={reviewData}/></div>
             </div>
         )
     }

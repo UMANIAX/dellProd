@@ -65,7 +65,6 @@ class User extends Component {
 
         return (
             <div>
-
                 <Navbar user={this.props.store.getState().customerMeta.username}/>
 
                 <div className="ui stackable four column grid">

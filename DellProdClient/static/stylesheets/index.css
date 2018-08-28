@@ -12,3 +12,7 @@
     left: 40%;
     position: absolute;
 }
+
+.product-modal {
+    width: 500px;
+}

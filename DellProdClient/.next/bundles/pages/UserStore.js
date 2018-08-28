@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/UserStore', function() {
           var comp =
-      webpackJsonp([5],{
+      webpackJsonp([4],{
 
 /***/ "./actions.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -69,7 +69,7 @@ var changeInitState = function changeInitState(state) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return serverLink; });
-var serverLink = 'http://localhost:8080'; // 'https://dellnodeserver.herokuapp.com'
+var serverLink = 'https://dellnodeserver.herokuapp.com'; //'http://localhost:8080'
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   BUY_PRODUCT: 'BUY_PRODUCT',
@@ -7207,7 +7207,12 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 32
         }
-      }, "Register new Complaint"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        }
+      }, "Register new Complaint")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
@@ -7336,7 +7341,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Hea
       fileName: _jsxFileName,
       lineNumber: 5
     }
-  }, "Title aayega yahan"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
+  }, "Shop Smart"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
     charSet: "utf-8",
     __source: {
       fileName: _jsxFileName,
@@ -7582,20 +7587,19 @@ function (_Component) {
           lineNumber: 21
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "image",
+        className: "image card-img-div",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 22
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        className: "card-img",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 23
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "content",
+        className: "content card-content",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 25
@@ -7687,11 +7691,20 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__("./actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviewCards_Complaint_Reviews__ = __webpack_require__("./pages/reviewCards/Complaint_Reviews.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./actions.js");
 var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ProductModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -7704,6 +7717,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -7740,81 +7754,130 @@ function (_Component) {
           item.complaint ? item.complaint.onGoing ? ongoingComplaint = 1 : null : null;
         }
       });
+      var productReviews = undefined;
+      store.getState().products.forEach(function (item) {
+        return item.asin === info.asin ? productReviews = item.reviews : null;
+      });
+      var reviewData = productReviews.map(function (item) {
+        var _item$split = item.split('::::'),
+            _item$split2 = _slicedToArray(_item$split, 3),
+            review = _item$split2[0],
+            username = _item$split2[1],
+            date = _item$split2[2];
+
+        return {
+          review: review,
+          username: username,
+          date: date
+        };
+      });
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment main",
+        className: "ui grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 36
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "twelve wide column",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "ui raised segment container main product-modal",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 39
         }
-      }, info.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "image content",
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+        className: "ui red ribbon label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 39
+        }
+      }, "$ ", info.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "image content",
+        align: "center",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "image img-size",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 41
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 42
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
+        className: "ui header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
-        }
-      }, info.description), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui horizontal segments",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 43
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment centered",
+        className: "content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 44
+        }
+      }, info.title, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "sub header",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46
+        }
+      }, info.description))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "ui grid centered button-len",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "three wide column",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
         }
       }, isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui green button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 52
         }
-      }, "Buy Now $ ", info.price) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      }, "Buy Now") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui green button",
         onClick: function onClick() {
-          store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* buyProduct */])(info.asin, info.categories));
+          store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["a" /* buyProduct */])(info.asin, info.categories));
           buy(info);
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 53
         }
-      }, "Buy Now $ ", info.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment centered",
+      }, "Buy Now")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "three wide column",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 59
         }
       }, !isBought || ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 61
         }
       }, "Issue Complain") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button red",
@@ -7823,19 +7886,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 63
         }
       }, "Issue Complain")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment centered",
+        className: "three wide column",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 67
         }
       }, !isBought ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 69
         }
       }, "Review") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui pink button",
@@ -7844,25 +7907,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 70
         }
-      }, "Review"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui horizontal segments",
+      }, "Review")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "three wide column",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment centered",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 73
         }
       }, !isBought || !ongoingComplaint ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button disabled",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 75
         }
       }, "Complaint Feedback") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui orange button",
@@ -7871,13 +7928,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 77
         }
-      }, "Complaint Feedback")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment centered",
+      }, "Complaint Feedback"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "go-back-but",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 82
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button",
@@ -7886,9 +7943,21 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 83
         }
-      }, "Go Back"))))));
+      }, "Go Back")))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "four wide column",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__reviewCards_Complaint_Reviews__["a" /* default */], {
+        reviews: reviewData,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        }
+      })));
     }
   }]);
 
@@ -7976,11 +8045,12 @@ function (_Component) {
         return item.categories == cat;
       });
       if (!displayProducts.length) displayProducts = products;
+      console.log(cat);
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "ui stackable five column grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 21
         }
       }, displayProducts.map(function (item, index) {
         return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
@@ -7988,14 +8058,14 @@ function (_Component) {
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20
+            lineNumber: 22
           }
         }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__ProductCard__["a" /* default */], {
           showProduct: _this.props.showProduct,
           info: item,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 20
+            lineNumber: 22
           }
         }));
       }));
@@ -8071,10 +8141,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var backModal = function backModal(id) {
-  return $("#".concat(id, " .ui.modal.main")).modal('show');
-};
-
 var ReviewModal =
 /*#__PURE__*/
 function (_Component) {
@@ -8091,7 +8157,14 @@ function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = ReviewModal.__proto__ || Object.getPrototypeOf(ReviewModal)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "submit", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_ref = ReviewModal.__proto__ || Object.getPrototypeOf(ReviewModal)).call.apply(_ref, [this].concat(args))), Object.defineProperty(_assertThisInitialized(_this), "state", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: {
+        loading: 0
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "submit", {
       configurable: true,
       enumerable: true,
       writable: true,
@@ -8106,22 +8179,27 @@ function (_Component) {
               switch (_context.prev = _context.next) {
                 case 0:
                   e.preventDefault();
+
+                  _this.setState({
+                    loading: 1
+                  });
+
                   _reviewData = _this.refs._reviewData;
-                  _reviewData = _reviewData.value;
+                  _reviewData = _reviewData.value + '::::' + localStorage['user'] + '::::' + new Date().toString();
                   _this$props = _this.props, info = _this$props.info, reviewed = _this$props.reviewed;
                   store = _this.context.store;
                   _store$getState$custo = store.getState().customerML, reviewCount = _store$getState$custo.reviewCount, reviewSentiment = _store$getState$custo.reviewSentiment;
-                  _context.next = 8;
+                  _context.next = 9;
                   return __WEBPACK_IMPORTED_MODULE_5_axios_index___default.a.get("https://service-area.herokuapp.com/ibm?reviewText=".concat(_reviewData, "&reviewCount=").concat(reviewCount, "0&prevReviewScore=").concat(reviewSentiment));
 
-                case 8:
+                case 9:
                   _ref2 = _context.sent;
                   data = _ref2.data;
                   score = data.score;
                   store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions__["e" /* reviewProduct */])(info.asin, _reviewData, score));
                   reviewed(info);
 
-                case 13:
+                case 14:
                 case "end":
                   return _context.stop();
               }
@@ -8143,81 +8221,86 @@ function (_Component) {
           info = _props.info,
           b2p = _props.b2p;
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
-        className: "ui segment review",
+        className: "ui segment review ".concat(this.state.loading ? 'loading' : __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          }
+        })),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 37
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 38
         }
       }, "Review your product"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 39
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("img", {
         className: "image img-size",
         src: info.imgURL,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 40
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 41
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         }
       }, info.title), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("form", {
         onSubmit: this.submit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 43
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "ui form",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 44
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "field",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 45
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
         ref: "_reviewData",
         required: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         }
       }))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 49
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 50
         }
       }, "Submit")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 52
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button complaint-button-pad",
@@ -8226,7 +8309,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 53
         }
       }, "Go Back"))));
     }
@@ -8652,39 +8735,39 @@ function (_Component) {
         user: this.props.store.getState().customerMeta.username,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 68
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "ui stackable four column grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 70
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "three wide column side-menu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 71
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__SideMenu__["a" /* default */], {
         changeCat: this.sideMenu,
         cat: this.state.info,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 71
         }
       })), this.state.active === 'pane' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "twelve wide column product-pane",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 74
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ProductPane__["a" /* default */], {
         cat: this.state.info,
         showProduct: this.showProduct,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 74
         }
       })) : this.state.active === 'product' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__ProductModal__["a" /* default */], {
         buy: this.thanks,
@@ -8695,14 +8778,14 @@ function (_Component) {
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 77
         }
       }) : this.state.active === 'buy' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__ThankModal__["a" /* default */], {
         info: this.state.info,
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 81
         }
       }) : this.state.active === 'review' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__ReviewModal__["a" /* default */], {
         info: this.state.info,
@@ -8710,7 +8793,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 83
         }
       }) : this.state.active === 'complaint' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__ComplaintModal__["a" /* default */], {
         info: this.state.info,
@@ -8718,7 +8801,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 86
         }
       }) : this.state.active === 'complaintFeedback' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__ComplaintFeedBackModal__["a" /* default */], {
         info: this.state.info,
@@ -8726,7 +8809,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 90
         }
       }) : null));
     }
@@ -8911,6 +8994,153 @@ function (_Component) {
         }
       }
     })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/UserStore")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./pages/reviewCards/Complaint_Review_Cards.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/reviewCards/Complaint_Review_Cards.js";
+
+
+var Complaint_Review_Cards = function Complaint_Review_Cards(_ref) {
+  var username = _ref.username,
+      review = _ref.review,
+      date = _ref.date;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "ui card",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 2
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "content",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "header",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    }
+  }, username), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "meta",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+    className: "calendar alternate icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    }
+  })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    }
+  }, date)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    }
+  }, review)));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Complaint_Review_Cards);
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
+
+      if (module.hot.status() === 'idle') return
+
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
+
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/reviewCards/Complaint_Review_Cards")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./pages/reviewCards/Complaint_Reviews.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Complaint_Review_Cards__ = __webpack_require__("./pages/reviewCards/Complaint_Review_Cards.js");
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/reviewCards/Complaint_Reviews.js";
+
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var Complaint_Reviews = function Complaint_Reviews(_ref) {
+  var reviews = _ref.reviews;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "ui raised very padded text segment segment-width",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
+    className: "ui header",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    }
+  }, "Reviews"), reviews.map(function (item, ind) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Complaint_Review_Cards__["a" /* default */], _extends({
+      key: ind
+    }, item, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 6
+      }
+    }));
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Complaint_Reviews);
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
+
+      if (module.hot.status() === 'idle') return
+
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
+
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/reviewCards/Complaint_Reviews")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
@@ -9166,7 +9396,7 @@ var customerML = function customerML() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/UserStore.js");
@@ -9174,7 +9404,7 @@ module.exports = __webpack_require__("./pages/UserStore.js");
 
 /***/ })
 
-},[4])
+},[3])
           return { page: comp.default }
         })
       ;

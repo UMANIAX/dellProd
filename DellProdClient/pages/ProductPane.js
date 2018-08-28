@@ -14,6 +14,8 @@ class ProductPane extends Component {
         if (!displayProducts.length)
             displayProducts = products
 
+        console.log(cat)
+
         return (
 
             <div className="ui stackable five column grid">

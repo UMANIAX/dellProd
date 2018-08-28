@@ -29,7 +29,7 @@ class ComplaintModal extends Component {
         return (
 
             <div className="ui segment complaint">
-                <div className="header">Register new Complaint</div>
+                <div className="header"><h3>Register new Complaint</h3></div>
                 <div className="image content">
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">

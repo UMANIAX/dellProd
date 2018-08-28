@@ -4,16 +4,17 @@ import PropTypes from "prop-types";
 import {reviewProduct} from '../actions'
 import axios from "axios/index";
 
-const backModal = id => $(`#${id} .ui.modal.main`).modal('show')
-
 class ReviewModal extends Component {
+
+    state = {loading: 0}
 
     submit = async e => {
 
         e.preventDefault()
+        this.setState({loading: 1})
 
         let {_reviewData} = this.refs
-        _reviewData = _reviewData.value
+        _reviewData = _reviewData.value + '::::' + localStorage['user'] + '::::' + (new Date()).toString()
 
         const {info, reviewed} = this.props
         const {store} = this.context
@@ -33,7 +34,7 @@ class ReviewModal extends Component {
 
         return (
 
-            <div className="ui segment review">
+            <div className={`ui segment review ${this.state.loading ? 'loading' : <p/>}`}>
                 <div className="header">Review your product</div>
                 <div className="image content">
                     <img className="image img-size" src={info.imgURL}/>

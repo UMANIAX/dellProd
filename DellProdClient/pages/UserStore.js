@@ -11,7 +11,7 @@ let store = null
 
 export default class UserStore extends Component {
 
-    static async getInitialProps({ query: { id } }) {
+    static async getInitialProps({query: {id}}) {
 
         const dbFetch = await axios(serverLink + '/data/' + id)
         return {incomingData: dbFetch.data, id: id}

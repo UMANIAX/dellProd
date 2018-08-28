@@ -19,10 +19,10 @@ class ProductCard extends Component {
 
             <div className="ui link cards" id={info.asin}>
                 <div className="card">
-                    <div className="image">
-                        <img className="card-img" src={info.imgURL}/>
+                    <div className="image card-img-div">
+                        <img src={info.imgURL}/>
                     </div>
-                    <div className="content">
+                    <div className="content card-content">
                         <div className="header">{info.title}</div>
                         <div className="meta">
                             <a>$ {info.price}</a>
