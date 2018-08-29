@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -138,7 +138,7 @@ var changeInitState = function changeInitState(state) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return serverLink; });
-var serverLink = 'https://dellnodeserver.herokuapp.com'; //'http://localhost:8080'
+var serverLink = 'https://dellnode.herokuapp.com'; //'http://localhost:8080'
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   BUY_PRODUCT: 'BUY_PRODUCT',
@@ -155,15 +155,18 @@ var serverLink = 'https://dellnodeserver.herokuapp.com'; //'http://localhost:808
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stars_RatingStars__ = __webpack_require__("./pages/stars/RatingStars.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__("./actions.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("prop-types");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__("axios");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ComplaintFeedBackModal.js";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stars_RatingStars__ = __webpack_require__("./pages/stars/RatingStars.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_axios__);
+
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintFeedBackModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -175,6 +178,8 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -222,39 +227,40 @@ function (_Component) {
       value: {
         rateArr: _this.questions.map(function () {
           return 1;
-        })
+        }),
+        loading: 0
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "questionnaire", {
       configurable: true,
       enumerable: true,
       writable: true,
       value: function value(ind) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           className: "ui horizontal segments",
           key: ind,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
-          }
-        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-          className: "ui segment",
-          __source: {
-            fileName: _jsxFileName,
             lineNumber: 23
           }
-        }, _this.questions[ind]), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
           className: "ui segment",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 26
+            lineNumber: 24
           }
-        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__stars_RatingStars__["a" /* default */], {
+        }, _this.questions[ind]), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+          className: "ui segment",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__stars_RatingStars__["a" /* default */], {
           currentRate: _this.state.rateArr[ind],
           index: ind,
           update: _this.updateRating,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 28
           }
         })));
       }
@@ -274,33 +280,63 @@ function (_Component) {
       configurable: true,
       enumerable: true,
       writable: true,
-      value: function value() {
-        var _this$props = _this.props,
-            info = _this$props.info,
-            feedbackPut = _this$props.feedbackPut;
-        var store = _this.context.store;
-        var _complaintReview = _this.refs._complaintReview;
-        var sendData = {
-          'username': localStorage['user'].toString(),
-          'level of services you received': _this.state.rateArr[0].toString(),
-          'satisfied with how your problem was dealt': _this.state.rateArr[1].toString(),
-          'demeanour of the customer service employee': _this.state.rateArr[2].toString(),
-          'employee to be very well informed': _this.state.rateArr[3].toString(),
-          'wait for my query acceptable': _this.state.rateArr[4].toString(),
-          'Feedback': _complaintReview.value.toString()
+      value: function () {
+        var _value = _asyncToGenerator(
+        /*#__PURE__*/
+        __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(e) {
+          var _this$props, info, feedbackPut, store, _complaintReview, sendData, formData, key, _ref2, data, score;
+
+          return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  e.preventDefault();
+
+                  _this.setState({
+                    rateArr: _this.state.rateArr,
+                    loading: 1
+                  });
+
+                  _this$props = _this.props, info = _this$props.info, feedbackPut = _this$props.feedbackPut;
+                  store = _this.context.store;
+                  _complaintReview = _this.refs._complaintReview;
+                  sendData = {
+                    'username': localStorage['user'].toString(),
+                    'level of services you received': _this.state.rateArr[0].toString(),
+                    'satisfied with how your problem was dealt': _this.state.rateArr[1].toString(),
+                    'demeanour of the customer service employee': _this.state.rateArr[2].toString(),
+                    'employee to be very well informed': _this.state.rateArr[3].toString(),
+                    'wait for my query acceptable': _this.state.rateArr[4].toString(),
+                    'Feedback': _complaintReview.value.toString()
+                  };
+                  formData = new FormData();
+
+                  for (key in sendData) {
+                    formData.append(key, sendData[key]);
+                  }
+
+                  _context.next = 10;
+                  return __WEBPACK_IMPORTED_MODULE_5_axios___default.a.post('https://service-area.herokuapp.com/customerSurvey', formData);
+
+                case 10:
+                  _ref2 = _context.sent;
+                  data = _ref2.data;
+                  score = data.score;
+                  store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["c" /* complaintFeedback */])(info.asin, score));
+                  feedbackPut(info);
+
+                case 15:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, this);
+        }));
+
+        return function value(_x) {
+          return _value.apply(this, arguments);
         };
-        var formData = new FormData();
-
-        for (var key in sendData) {
-          formData.append(key, sendData[key]);
-        }
-
-        __WEBPACK_IMPORTED_MODULE_4_axios___default.a.post('https://service-area.herokuapp.com/customerSurvey', formData);
-        store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* complaintFeedback */])(info.asin, _this.state.rateArr.reduce(function (acc, curr) {
-          return acc += curr;
-        }) / _this.state.rateArr.length));
-        feedbackPut(info);
-      }
+      }()
     }), _temp));
   }
 
@@ -312,108 +348,113 @@ function (_Component) {
       var _props = this.props,
           info = _props.info,
           b2p = _props.b2p;
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "ui segment complaint-feedback",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 70
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "header",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        }
-      }, "Please enter feedback of a specific complaint"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "image content",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 72
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        className: "image img-size",
-        src: info.imgURL,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 73
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "description",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 74
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 75
-        }
-      }, info.title), _toConsumableArray(Array(this.questions.length)).map(function (item, index) {
-        return _this2.questionnaire(index);
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 77
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
-        onSubmit: this.submitRating,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 78
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        className: "ui segment complaint-feedback ".concat(this.state.loading ? 'loading' : ''),
         __source: {
           fileName: _jsxFileName,
           lineNumber: 79
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        className: "header",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 80
         }
-      }, " Please describe your experience with our customer care sevice below :"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        }
+      }, "Please enter feedback of a specific complaint")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        className: "image content",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("img", {
+        className: "image img-size",
+        src: info.imgURL,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        className: "description",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h4", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        }
+      }, info.title), _toConsumableArray(Array(this.questions.length)).map(function (item, index) {
+        return _this2.questionnaire(index);
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 86
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("form", {
+        onSubmit: this.submitRating,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88
+        }
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        }
+      }, " Please describe your experience with our customer care sevice below :"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("textarea", {
         name: "Feedback",
         rows: "10",
         cols: "80",
         ref: "_complaintReview",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 90
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 90
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 91
         }
-      }, "Submit"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 85
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      }, "Submit"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button complaint-button-pad",
         onClick: function onClick() {
           return b2p(info);
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 92
         }
-      }, "Go Back"))));
+      }, "Go Back"))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 97
+        }
+      }))));
     }
   }]);
 
   return ComplaintFeedBackModal;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
 ComplaintFeedBackModal.contextTypes = {
-  store: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.object
+  store: __WEBPACK_IMPORTED_MODULE_4_prop_types___default.a.object
 };
 /* harmony default export */ __webpack_exports__["a"] = (ComplaintFeedBackModal);
 
@@ -429,7 +470,7 @@ ComplaintFeedBackModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ProductModal__ = __webpack_require__("./pages/ProductModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ComplaintModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -572,21 +613,21 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 44
         }
-      }, "Submit")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 45
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      }, "Submit"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "ui button complaint-button-pad",
         onClick: function onClick() {
           return b2p(info);
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 45
         }
-      }, "Go Back"))));
+      }, "Go Back")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48
+        }
+      }))));
     }
   }]);
 
@@ -608,7 +649,7 @@ ComplaintModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_head__ = __webpack_require__("next/head");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_head__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/HeadComp.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/HeadComp.js";
 
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
@@ -709,7 +750,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Hea
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Navbar.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/Navbar.js";
 
 
 
@@ -730,7 +771,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Nav
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
     className: "imgDim",
-    src: "/static/dell-logo.png",
+    src: "http://www.kenya-aircargo.com/wp-content/uploads/2018/03/iStock_000020875510Medium.jpg",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -774,7 +815,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Nav
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions__ = __webpack_require__("./actions.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_next_link__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ProductCard.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductCard.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -889,10 +930,9 @@ function (_Component) {
           lineNumber: 38
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        className: "modal-button ui teal button",
-        onClick: function onClick() {
-          return showProduct(info);
-        },
+        className: "modal-button ui teal button"
+        /*onClick={() => showProduct(info)}*/
+        ,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -918,7 +958,7 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviewCards_Complaint_Reviews__ = __webpack_require__("./pages/reviewCards/Complaint_Reviews.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./actions.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ProductModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1205,7 +1245,7 @@ ProductModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ProductPane.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductPane.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1303,7 +1343,7 @@ ProductPane.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios_index__ = __webpack_require__("axios/index");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_axios_index__);
 
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ReviewModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ReviewModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1424,7 +1464,12 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 38
         }
-      }, "Review your product"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        }
+      }, "Review your product")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         className: "image content",
         __source: {
           fileName: _jsxFileName,
@@ -1484,21 +1529,21 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 50
         }
-      }, "Submit")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 52
-        }
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
+      }, "Submit"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         className: "ui button complaint-button-pad",
         onClick: function onClick() {
           return b2p(info);
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 51
         }
-      }, "Go Back"))));
+      }, "Go Back")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        }
+      }))));
     }
   }]);
 
@@ -1518,7 +1563,7 @@ ReviewModal.contextTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/SideMenu.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/SideMenu.js";
 
 /* harmony default export */ __webpack_exports__["a"] = (function (_ref) {
   var cat = _ref.cat,
@@ -1577,7 +1622,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/Sid
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThankModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/ThankModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ThankModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1691,7 +1736,7 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ReviewModal__ = __webpack_require__("./pages/ReviewModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ComplaintModal__ = __webpack_require__("./pages/ComplaintModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ComplaintFeedBackModal__ = __webpack_require__("./pages/ComplaintFeedBackModal.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/User.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/User.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1973,7 +2018,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions__ = __webpack_require__("./actions.js");
 
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/UserStore.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/UserStore.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2097,7 +2142,7 @@ function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/reviewCards/Complaint_Review_Cards.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Review_Cards.js";
 
 
 var Complaint_Review_Cards = function Complaint_Review_Cards(_ref) {
@@ -2163,7 +2208,7 @@ var Complaint_Review_Cards = function Complaint_Review_Cards(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Complaint_Review_Cards__ = __webpack_require__("./pages/reviewCards/Complaint_Review_Cards.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/reviewCards/Complaint_Reviews.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Reviews.js";
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -2207,7 +2252,7 @@ var Complaint_Reviews = function Complaint_Reviews(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Star__ = __webpack_require__("./pages/stars/Star.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/stars/RatingStars.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/stars/RatingStars.js";
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -2251,7 +2296,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/Dell/DellProdClient/pages/stars/Star.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/stars/Star.js";
 
 
 var Star = function Star(_ref) {
@@ -2417,6 +2462,11 @@ var customerML = function customerML() {
       state.reviewSentiment = action.score;
       return state;
 
+    case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].COMPLAINT_FEEDBACK:
+      state.serviceFeedbackSentiment = action.rating;
+      state.feedbackCount += 1;
+      return state;
+
     case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CHANGE_INIT_STATE:
       return action.state.customerML;
 
@@ -2427,7 +2477,7 @@ var customerML = function customerML() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/UserStore.js");

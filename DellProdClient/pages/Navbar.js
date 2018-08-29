@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default ({user}) =>
         <div className="ui inverted menu">
             <a className="item">
-                <img className="imgDim" src="/static/dell-logo.png"/>
+                <img className="imgDim" src="http://www.kenya-aircargo.com/wp-content/uploads/2018/03/iStock_000020875510Medium.jpg"/>
             </a>
             <a className="item">
                 {user}

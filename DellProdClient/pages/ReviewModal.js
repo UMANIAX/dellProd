@@ -35,7 +35,7 @@ class ReviewModal extends Component {
         return (
 
             <div className={`ui segment review ${this.state.loading ? 'loading' : <p/>}`}>
-                <div className="header">Review your product</div>
+                <div className="header"><h3>Review your product</h3></div>
                 <div className="image content">
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">
@@ -48,11 +48,11 @@ class ReviewModal extends Component {
                             </div>
                             <br/>
                             <button className="ui button">Submit</button>
+                            <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
+                                Back
+                            </button>
                         </form>
                         <br/>
-                        <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
-                            Back
-                        </button>
                     </div>
                 </div>
             </div>

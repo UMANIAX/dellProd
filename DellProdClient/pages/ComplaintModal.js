@@ -42,10 +42,11 @@ class ComplaintModal extends Component {
                             </div>
                             <br/>
                             <button className="ui button">Submit</button>
+                            <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
+                                Back
+                            </button>
                         </form><br/>
-                        <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
-                            Back
-                        </button>
+
                     </div>
                 </div>
             </div>

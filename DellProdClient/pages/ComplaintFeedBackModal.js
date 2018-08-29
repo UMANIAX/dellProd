@@ -15,7 +15,8 @@ class ComplaintFeedBackModal extends Component {
     ]
 
     state = {
-        rateArr: this.questions.map(() => 1)
+        rateArr: this.questions.map(() => 1),
+        loading: 0
     }
 
     questionnaire = ind =>
@@ -34,7 +35,14 @@ class ComplaintFeedBackModal extends Component {
         this.setState({rateArr: newArr})
     }
 
-    submitRating = () => {
+    submitRating = async e => {
+
+        e.preventDefault()
+
+        this.setState({
+            rateArr: this.state.rateArr,
+            loading: 1
+        })
 
         const {info, feedbackPut} = this.props
         const {store} = this.context
@@ -55,9 +63,10 @@ class ComplaintFeedBackModal extends Component {
         for (let key in sendData)
             formData.append(key, sendData[key])
 
-        axios.post('https://service-area.herokuapp.com/customerSurvey', formData)
+        const {data} = await axios.post('https://service-area.herokuapp.com/customerSurvey', formData)
+        const {score} = data
 
-        store.dispatch(complaintFeedback(info.asin, (this.state.rateArr.reduce((acc, curr) => acc += curr)) / this.state.rateArr.length))
+        store.dispatch(complaintFeedback(info.asin, score))
         feedbackPut(info)
     }
 
@@ -67,8 +76,8 @@ class ComplaintFeedBackModal extends Component {
 
         return (
 
-            <div className="ui segment complaint-feedback">
-                <div className="header">Please enter feedback of a specific complaint</div>
+            <div className={`ui segment complaint-feedback ${this.state.loading ? 'loading' : ''}`}>
+                <div className="header"><h3>Please enter feedback of a specific complaint</h3></div>
                 <div className="image content">
                     <img className="image img-size" src={info.imgURL}/>
                     <div className="description">
@@ -80,12 +89,12 @@ class ComplaintFeedBackModal extends Component {
                             <p> Please describe your experience with our customer care sevice below :</p>
                                 <textarea name="Feedback" rows="10" cols="80" ref="_complaintReview"/><br/>
                                 <button className="ui button">Submit</button>
+                                <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
+                                    Back
+                                </button>
                             </div>
                         </form>
                         <br/>
-                        <button className="ui button complaint-button-pad" onClick={() => b2p(info)}>Go
-                            Back
-                        </button>
                     </div>
                 </div>
             </div>

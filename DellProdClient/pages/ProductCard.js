@@ -36,7 +36,7 @@ class ProductCard extends Component {
                         {info.categories}
                       </span>
                       <span>
-                        <button className={`modal-button ui teal button`} onClick={() => showProduct(info)}>View</button>
+                        <button className={`modal-button ui teal button`} /*onClick={() => showProduct(info)}*/>View</button>
                       </span>
                     </div>
                 </div>

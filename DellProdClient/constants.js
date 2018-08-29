@@ -1,4 +1,4 @@
-export const serverLink = 'https://dellnodeserver.herokuapp.com' //'http://localhost:8080'
+export const serverLink = 'https://dellnode.herokuapp.com' //'http://localhost:8080'
 
 export default {
 
