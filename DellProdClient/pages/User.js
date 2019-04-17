@@ -68,8 +68,6 @@ class User extends Component {
                 <Navbar user={this.props.store.getState().customerMeta.username}/>
 
                 <div className="ui stackable four column grid">
-                    <div className="three wide column side-menu"><SideMenu changeCat={this.sideMenu}
-                                                                           cat={this.state.info}/></div>
                     {this.state.active === 'pane' ?
                         <div className="twelve wide column product-pane"><ProductPane cat={this.state.info}
                                                                                       showProduct={this.showProduct}/>

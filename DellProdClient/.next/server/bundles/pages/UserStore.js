@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -166,7 +166,7 @@ var serverLink = 'https://dellnode.herokuapp.com'; //'http://localhost:8080'
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios__ = __webpack_require__("axios");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_axios__);
 
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintFeedBackModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintFeedBackModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -470,7 +470,7 @@ ComplaintFeedBackModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ProductModal__ = __webpack_require__("./pages/ProductModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ComplaintModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -649,7 +649,7 @@ ComplaintModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_head__ = __webpack_require__("next/head");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_head__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/HeadComp.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/HeadComp.js";
 
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
@@ -750,7 +750,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/De
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__static_stylesheets_navbar_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/Navbar.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/Navbar.js";
 
 
 
@@ -815,7 +815,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/De
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions__ = __webpack_require__("./actions.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_next_link__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductCard.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ProductCard.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -872,70 +872,59 @@ function (_Component) {
           lineNumber: 21
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "image card-img-div",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 22
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        src: info.imgURL,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23
-        }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "content card-content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 22
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 23
         }
       }, info.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "meta",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 24
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 25
         }
       }, "$ ", info.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "description",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 27
         }
       }, info.description)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "extra content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 31
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         className: "right floated",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 32
         }
       }, info.categories), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 35
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        className: "modal-button ui teal button"
-        /*onClick={() => showProduct(info)}*/
-        ,
+        className: "modal-button ui teal button",
+        onClick: function onClick() {
+          return showProduct(info);
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 36
         }
       }, "View")))));
     }
@@ -958,7 +947,7 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reviewCards_Complaint_Reviews__ = __webpack_require__("./pages/reviewCards/Complaint_Reviews.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./actions.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ProductModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1245,7 +1234,7 @@ ProductModal.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ProductPane.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ProductPane.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1343,7 +1332,7 @@ ProductPane.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios_index__ = __webpack_require__("axios/index");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_axios_index__);
 
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ReviewModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ReviewModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1563,9 +1552,9 @@ ReviewModal.contextTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/SideMenu.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/SideMenu.js";
 
-/* harmony default export */ __webpack_exports__["a"] = (function (_ref) {
+/* unused harmony default export */ var _unused_webpack_default_export = (function (_ref) {
   var cat = _ref.cat,
       changeCat = _ref.changeCat;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
@@ -1622,7 +1611,7 @@ var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/De
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThankModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/ThankModal.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/ThankModal.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1736,7 +1725,7 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ReviewModal__ = __webpack_require__("./pages/ReviewModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ComplaintModal__ = __webpack_require__("./pages/ComplaintModal.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ComplaintFeedBackModal__ = __webpack_require__("./pages/ComplaintFeedBackModal.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/User.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/User.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1918,31 +1907,18 @@ function (_Component) {
           fileName: _jsxFileName,
           lineNumber: 70
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "three wide column side-menu",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__SideMenu__["a" /* default */], {
-        changeCat: this.sideMenu,
-        cat: this.state.info,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        }
-      })), this.state.active === 'pane' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }, this.state.active === 'pane' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "twelve wide column product-pane",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 72
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__ProductPane__["a" /* default */], {
         cat: this.state.info,
         showProduct: this.showProduct,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 72
         }
       })) : this.state.active === 'product' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__ProductModal__["a" /* default */], {
         buy: this.thanks,
@@ -1953,14 +1929,14 @@ function (_Component) {
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 75
         }
       }) : this.state.active === 'buy' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__ThankModal__["a" /* default */], {
         info: this.state.info,
         b2h: this.backToHome,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 79
         }
       }) : this.state.active === 'review' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__ReviewModal__["a" /* default */], {
         info: this.state.info,
@@ -1968,7 +1944,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 81
         }
       }) : this.state.active === 'complaint' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__ComplaintModal__["a" /* default */], {
         info: this.state.info,
@@ -1976,7 +1952,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 84
         }
       }) : this.state.active === 'complaintFeedback' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__ComplaintFeedBackModal__["a" /* default */], {
         info: this.state.info,
@@ -1984,7 +1960,7 @@ function (_Component) {
         b2p: this.backToProductModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 88
         }
       }) : null));
     }
@@ -2018,7 +1994,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__HeadComp__ = __webpack_require__("./pages/HeadComp.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__actions__ = __webpack_require__("./actions.js");
 
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/UserStore.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/UserStore.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2142,7 +2118,7 @@ function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Review_Cards.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Review_Cards.js";
 
 
 var Complaint_Review_Cards = function Complaint_Review_Cards(_ref) {
@@ -2208,7 +2184,7 @@ var Complaint_Review_Cards = function Complaint_Review_Cards(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Complaint_Review_Cards__ = __webpack_require__("./pages/reviewCards/Complaint_Review_Cards.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Reviews.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/reviewCards/Complaint_Reviews.js";
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -2252,7 +2228,7 @@ var Complaint_Reviews = function Complaint_Reviews(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Star__ = __webpack_require__("./pages/stars/Star.js");
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/stars/RatingStars.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/stars/RatingStars.js";
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -2296,7 +2272,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/home/umaniax/WebstormProjects/dellSiteProtoType/dellProd/DellProdClient/pages/stars/Star.js";
+var _jsxFileName = "/home/umaniax/WebstormProjects/Dell_SNU_Hackathon_2018/dellSiteProtoType/dellProd/DellProdClient/pages/stars/Star.js";
 
 
 var Star = function Star(_ref) {
@@ -2477,7 +2453,7 @@ var customerML = function customerML() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/UserStore.js");
